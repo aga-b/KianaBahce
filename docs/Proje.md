@@ -1,20 +1,21 @@
 # Kiana Bahçe — Ürün, Mimari ve Ajan Uygulama Şartnamesi
 
-**Belge sürümü:** 1.0 · **Tarih:** 1 Ekim 2026 · **Dil:** Türkçe  
+**Belge sürümü:** 1.1 · **Tarih:** 1 Ekim 2026 · **Dil:** Türkçe  
 **Durum:** Uygulama ajanları için başlangıç şartnamesi. Bu belge uygulamanın kurulmuş, test edilmiş veya yayına alınmış olduğu anlamına gelmez.  
-**Teslim kapsamı:** Tek Markdown belge. Uygulama kodu, depo değişikliği, hesap açma, hizmet satın alma ve dağıtım bu hazırlığın kapsamında değildir.
+**Teslim kapsamı:** Tek Markdown belge. Uygulama kodu, depo değişikliği, hesap açma, hizmet satın alma ve dağıtım bu hazırlığın kapsamında değildir.  
+**v1.1 notu:** Bu sürüm v1.0'ın (`Proje.md`) yerine geçer. v1.0 incelemesinden çıkan düzeltmeler işlenmiştir; fark listesi §24 değişiklik kaydındadır. Görev (K) ve test (T) kimlikleri korunmuş, yeni kimlikler sona eklenmiştir.
 
-**Okuma yolu:** Ürün için §2–4; teknik mimari için §5–9; müşteri ve iletişim süreçleri için §10–15; güvenlik için §17; uygulama sözleşmeleri için §18; kabul ve depo yönetimi için §20–21; ajanlara sırayla iş vermek için **§22**. İşletme sahibinden alınacak bilgiler **§23**'tedir. İlk kodlama görevi K00'dır; depo bilgisi verilmeden bu görev başlatılamaz.
+**Okuma yolu:** Her görevde zorunlu: `AGENTS.md`, §1, §4, §20.2 ve görev kartının okuma listesi (**§22.4**). Ürün için §2–4; teknik mimari için §5–9; müşteri ve iletişim süreçleri için §10–15; güvenlik ve kişisel veri için §17; uygulama sözleşmeleri için §18; işletim, bakım ve maliyet için §19; kabul için §20; depo ve inceleme kapıları için §21; ajanlara sırayla iş vermek için **§22**. İşletme sahibinden alınacak bilgiler **§23**'tedir. İlk kodlama görevi K00'dır (hafif: `AGENTS.md`, PR şablonu, CI iskeleti); depo mevcuttur.
 
 ## 1. Belgenin yetkisi ve çalışma biçimi
 
-Bu belge ürün kapsamı, temel teknik kararlar ve kabul kriterleri için ortak referanstır. Kodlama ajanı işe başlamadan tamamını, ardından kendi görev bölümünü okumalıdır. Kullanıcının daha sonraki açık talimatı belgeyi değiştirir; ajan bu değişikliği belgeye işlemeden eski ve yeni kuralları karıştırmamalıdır.
+Bu belge ürün kapsamı, temel teknik kararlar ve kabul kriterleri için ortak referanstır. Kodlama ajanı işe başlarken `AGENTS.md`'yi, §1, §4 ve §20.2'yi ve görev kartının okuma listesini (§22.4) okur; belgenin tamamını okumak zorunlu değildir. Listede olmayan bir bölümün göreve etki ettiği anlaşılırsa entegratöre bildirilir ve liste düzeltilir. Kullanıcının daha sonraki açık talimatı belgeyi değiştirir; ajan bu değişikliği belgeye işlemeden eski ve yeni kuralları karıştırmamalıdır.
 
 - **Ürün sahibi:** İşletme kararları, bütçe, müşteriyle kurulacak iletişim, tasarımın kabulü ve canlıya geçiş onayı kullanıcıdadır.
-- **Mimari sorumlusu / entegratör:** Ana asistan; teknik kararları, görev sınırlarını, incelemeyi ve `main` birleştirmelerini yönetir.
+- **Mimari sorumlusu / entegratör:** Ana asistan; teknik kararları, görev sınırlarını ve incelemeyi yönetir; kabul edilen PR'ları `main`'e birleştirir.
 - **Kodlama ajanı:** Yalnızca verilen görev kimliğini uygular. Ayrı dal ve çalışma alanı kullanır; sonraki görevi kendiliğinden başlatmaz.
-- **`main` kuralı:** Hiçbir ajan doğrudan `main` üzerinde geliştirme yapmaz. Entegratör de değişiklikleri bir dalda hazırlar; yalnızca kabul edilmiş değişikliklerin `main` birleştirme yetkisini kullanır.
-- **Yetki gerçeği:** Bu belge Git erişim yetkisi vermez. Ayrı kimlikler ve depo korumaları kurulmadan “yalnız entegratör birleştirebilir” teknik olarak sağlanmış sayılmaz.
+- **`main` kuralı:** Hiçbir ajan doğrudan `main` üzerinde geliştirme yapmaz; değişiklikler görev dalından PR ile, CI geçtikten ve (gerekiyorsa) §21.3 insan inceleme kapısı tamamlandıktan sonra `main`'e girer. Bu bir çalışma kuralıdır; teknik olarak dayatılan bir yetki ayrımı değildir.
+- **Güven modeli:** Depo ürün sahibinin hesabındadır ve ürün sahibi tam yetkilidir. Bu belge Git erişim yetkisi vermez; ajanlar arasında teknik yetki ayrımı kurulmaz ve bilinçli olarak gerekli görülmez (ADR-12). Bu yüzden güvenlik açısından belirleyici kapı, güvenlik-kritik alanlardaki insan incelemesidir (§21.3); ajan incelemesi ek katmandır, yerine geçmez.
 - **Karar değişikliği:** Güvenlik sınırı, veri modeli, bağımlılık, lisans, dış hizmet veya API sözleşmesi değişikliği gerekçeli mimari karar kaydıyla entegratöre sunulur. Sessizce farklı teknoloji seçilmez.
 
 Bu belgede “zorunlu” kabul kapısını, “varsayılan” değiştirilebilir başlangıç kararını, “sonraki aşama” ise ilk sürüme dahil olmayan işi ifade eder. Sayısal limitler doğrulanmış işletme bilgisi değil, önerilen başlangıç ayarlarıdır.
@@ -29,9 +30,9 @@ Kiana Bahçe'nin ziyaretçisi mekânı tanıyabilmeli, uygun tarih arayabilmeli 
 2. **Müşteri portalı:** “Düğünüm”, gelişme panosu, sohbet, hazırlık adımları, seçim/onaylar, teklif, belgeler, ödeme takibi ve izin verilen özel medya.
 3. **Yönetim paneli:** Alanlar, seanslar, takvim, başvurular, teklifler, rezervasyonlar, müşteriler, ekip, içerikler, bildirimler ve denetim kayıtları.
 
-**Görsel yön:** Doğal zarafet; kırık beyaz, koyu yeşil ve ölçülü şampanya detayları. Gerçek mekân fotoğrafları, açık hiyerarşi, mobil kullanım ve erişilebilirlik. Bu karar tamamlanmış tasarım değildir. Nihai ekran tasarımı ayrı onaylanacaktır.
+**Görsel yön:** Doğal zarafet; kırık beyaz, koyu yeşil ve ölçülü şampanya detayları. Gerçek mekân fotoğrafları, açık hiyerarşi, mobil kullanım ve erişilebilirlik. Bu karar tamamlanmış tasarım değildir. Nihai ekran tasarımı ayrı onaylanacaktır; tasarım, fotoğraf ve metin hazırlığı K20 görevidir ve K07'nin önkoşuludur.
 
-**İlk sürüm dışında:** Çevrim içi ödeme/tahsilat, hukuken nitelikli elektronik imza, WhatsApp entegrasyonu, yerel mobil uygulama, canlı görüntülü görüşme, pazarlama kampanya motoru, çok işletmeli SaaS, gelişmiş masa sürükleme editörü ve başka sağlayıcılara otomatik takvim yazclma.
+**İlk sürüm dışında:** Çevrim içi ödeme/tahsilat, hukuken nitelikli elektronik imza, WhatsApp entegrasyonu, yerel mobil uygulama, canlı görüntülü görüşme, pazarlama kampanya motoru, çok işletmeli SaaS, gelişmiş masa sürükleme editörü ve başka sağlayıcılara otomatik takvim yazma.
 
 ## 3. Kapsam ve öncelik tablosu
 
@@ -39,10 +40,10 @@ Kiana Bahçe'nin ziyaretçisi mekânı tanıyabilmeli, uygun tarih arayabilmeli 
 |---|---|---|
 | Kurumsal site | Mekân, olanaklar, organizasyon türleri, iletişim, yol tarifi, SSS | Blog ve çok dil ihtiyaca göre |
 | Herkese açık galeri | Fotoğraflar, onaylı tanıtım videoları, albümler | Büyük arşivlerin toplu aktarımı ayrı iş |
-| Uygunluk | Alan + tarih/seans + davetli sayısı, genel doluluk görünümü | Karmaşık paket/kaynak optimizasyonu yok |
+| Uygunluk | Alan + tarih/seans + davetli sayısı, genel doluluk görünümü | Karmaşık paket/kaynak optimizasyonu, ikinci opsiyon ve bekleme listesi yok (§23) |
 | Ön rezervasyon | Talep, inceleme, süreli tutma, kesinleştirme, iptal | Talep göndermek kendiliğinden tarih bloke etmez |
 | Ziyaret randevusu | Saat seçimi/talebi ve personel onayı | Dış takvimlerle çift yönlü senkronizasyon sonra |
-| Kimlik | Google, Facebook ve Apple ile müşteri girişi; kontrollü düğün daveti | Sağlayıcı hesapları ve onayları teslimat bağımlılığıdır |
+| Kimlik | Google, Facebook ve Apple ile müşteri girişi; kontrollü düğün daveti | Sağlayıcı hesapları ve onayları teslimat bağımlılığıdır; sosyal girişi olmayan müşteri için yedek yol §7.1 ve §23'te |
 | Teklif | Sürümlü kişisel teklif, dahil hizmetler, müşteri kabul/değişiklik isteği | Teklif kabulü otomatik kesin rezervasyon veya e-imza değildir |
 | Düğünüm | Son gelişmeler, yaklaşan işler, bekleyen onaylar, tarih ve sorumlu ekip | Gösterge amaçlı uydurma ilerleme yüzdesi kullanılmaz |
 | Hazırlık panosu | Gelişme, yorum, kontrollü ek, müşteri/ekip ayrımı | Ekip notu müşteri paylaşımına otomatik dönüştürülmez |
@@ -54,6 +55,9 @@ Kiana Bahçe'nin ziyaretçisi mekânı tanıyabilmeli, uygun tarih arayabilmeli 
 | Özel medya | Erişim modeli ve depolama yapısı baştan; küçük ekler | Büyük müşteri albümü deneyimi sonraki aşama |
 | Yönetim | Takvim, müşteri akışı, içerik, ekip yetkisi, mesajlar, SMS durumu | Gelişmiş satış raporları sonra |
 | Davetli/masa planı | Veri sınırları ve genişleme noktası düşünülür | Davetli listesi, RSVP ve masa planı ikinci sürüm |
+| Tasarım ve içerik | Marka tokenları, kritik ekran akışları, gerçek fotoğraf/metin envanteri, hukuki metin taslakları | Nihai görsel kimlik ve fotoğraf çekimi ürün sahibi kararıdır (K20) |
+| Gizlilik / KVKK | Veri envanteri, aydınlatma metni, ilgili kişi başvuru akışı, saklama süreleri | Hukuki değerlendirme ve metin onayı işletme/uzmandadır (§17.6) |
+| Fatura / KDV | Teklif ve ödeme satırlarında KDV oranı/tutarı ve fatura referansı (kayıt amaçlı) | e-Fatura/e-Arşiv düzenleme ve GİB entegrasyonu yok; mali müşavir sürecidir (§10.5) |
 
 **İlk sürümün küçültülmesi gerekirse:** Güvenlik, rezervasyon doğruluğu ve özel iletişim azaltılmaz. Önce ileri galeri, rapor, push ve planlama modülleri ertelenir. Bir özellik hazır değilse canlıda yanıltıcı çalışan düğme gösterilmez.
 
@@ -71,7 +75,8 @@ Kiana Bahçe'nin ziyaretçisi mekânı tanıyabilmeli, uygun tarih arayabilmeli 
 | NOT-02 | SMS ağ hatası “kesin gönderilmedi” demek değildir. Belirsiz sonuç körlemesine tekrar gönderilmez. |
 | MEDIA-01 | Özel medyanın küçük resmi, posteri, video parçası ve altyazısı da özel dosyadır. |
 | OPS-01 | Gerçek müşteri verisi ve üretim sırları kodlama ajanlarının geliştirme/test ortamına kopyalanmaz. |
-| GOV-01 | `main` birleştirmesi yalnız yetkili entegratör kimliğiyle, kontroller geçtikten sonra yapılır. |
+| GOV-01 | `main`'e her değişiklik PR ve geçen CI ile girer; güvenlik-kritik alanlarda (§21.3) bağımsız insan incelemesi tamamlanmadan birleştirilmez. Ajan kendi güvenlik-kritik değişikliğini tek başına onaylamış sayılmaz. |
+| PRIV-01 | Amacı, aydınlatması/hukuki dayanağı ve saklama süresi kaydedilmeden yeni kişisel veri alanı eklenmez (§17.6). |
 | SCOPE-01 | Ajan yalnız kendisine atanmış görev kapsamını uygular; üretime çıkışı tamamlanmış geliştirmeyle eşitlemez. |
 
 ## 5. Mimari karar: sunucu ağırlıklı modüler monolit
@@ -90,6 +95,7 @@ flowchart TB
     P --> J[Node.js işçi: bildirim ve bakım işleri]
     P --> M[İzole medya işçisi]
     M --> Q[Özel karantina / orijinaller / türevler]
+    M --> V[ClamAV: ayrı tarama servisi]
     W --> G[Yetkili medya erişim geçidi]
     G --> Q
     J --> N[E-posta / SMS sağlayıcı adaptörleri]
@@ -106,17 +112,17 @@ flowchart TB
 |---|---|---|
 | Web | **Next.js App Router + React + TypeScript strict** | Sunucu bileşenleri, sunucuda veri hazırlama, etkileşim adaları. [Next.js bileşen modeli](https://nextjs.org/docs/app/getting-started/server-and-client-components) |
 | Stil | **Tailwind CSS**, erişilebilir bileşenlerde **shadcn/ui** | Marka tasarımı özelleştirilebilir; hazır bileşen davranışı yeniden icat edilmez. [Tailwind](https://tailwindcss.com/docs/styling-with-utility-classes), [shadcn/ui](https://ui.shadcn.com/docs) |
-| Kimlik | **Better Auth**, PostgreSQL'de kalıcı oturumlar | Sosyal müşteri girişi ve ayrı personel giriş akışı. Hazır kimlik kütüphanesi kullanılır; OAuth/şifreleme elle yazılmaz. [Better Auth](https://better-auth.com/docs/concepts/users-accounts) |
+| Kimlik | **Better Auth**, PostgreSQL'de kalıcı oturumlar | Sosyal müşteri girişi ve ayrı personel giriş akışı; oturum önbelleği, token saklama ve iptal gecikmesi K03'te doğrulanır (§7.1). Hazır kimlik kütüphanesi kullanılır; OAuth/şifreleme elle yazılmaz. [Better Auth](https://better-auth.com/docs/concepts/users-accounts) |
 | Veri | **PostgreSQL** | Transaction, foreign key, range constraint, satır güvenliği; rezervasyon otoritesi. |
 | Veri erişimi | **Drizzle ORM + node-postgres** | Tipli sorgular; özel constraint/RLS için incelemeli SQL migration. ORM veritabanı kurallarının yerine geçmez. [Drizzle](https://orm.drizzle.team/docs/rqb) |
 | Doğrulama | **Zod** | API ve ortam değişkeni şemaları; sunucu doğrulaması zorunlu. |
-| Arka plan | **pg-boss** | PostgreSQL tabanlı iş kuyruğu; ilk sürümde ayrıca Redis işletme zorunluluğu yok. [pg-boss](https://github.com/timgit/pg-boss) |
+| Arka plan | **pg-boss** | PostgreSQL tabanlı iş kuyruğu; ilk sürümde ayrıca Redis işletme zorunluluğu yok. İş eklemenin domain transaction'ına katılması K04'te değerlendirilir (§12.4). [pg-boss](https://github.com/timgit/pg-boss) |
 | Canlı iletişim | **SSE + HTTPS POST** | Mesaj gönderimi POST, değişiklik akışı SSE. Kalıcı kayıt DB'de; SSE bir veri deposu değildir. |
 | Takvim | **FullCalendar Standard**, yalnız takvim ekranlarında | Ay/hafta/liste görünümü; alan seçimi ayrı filtre. Ücretli Premium/Scheduler gerektiren görünüm seçilmez. [Lisans ayrımı](https://fullcalendar.io/license) |
 | Görsel işleme | **sharp** | Boyutlandırma, güvenli yeniden kodlama, modern türevler. [sharp](https://sharp.pixelplumbing.com/) |
 | Video işleme | **FFmpeg**, kontrollü yapılandırma | HLS kaliteleri, poster ve metadata; web isteği içinde çalışmaz. Derleme seçenekleri lisans kapsamını değiştirebilir. [FFmpeg lisans bilgisi](https://ffmpeg.org/legal.html) |
 | Video oynatma | Yerel HLS destekleniyorsa native video; diğerlerinde **hls.js** | Kendi markalı erişilebilir kontroller; oynatıcı yalnız ihtiyaçta yüklenir. [hls.js](https://github.com/video-dev/hls.js) |
-| Zararlı dosya tarama | **ClamAV** ve sıkı dosya türü doğrulama | Tarama tek başına güvenlik garantisi değildir; karantina ve izole dönüştürme ile birlikte kullanılır. [ClamAV](https://docs.clamav.net/) |
+| Zararlı dosya tarama | **ClamAV** ve sıkı dosya türü doğrulama | Ayrı servis (clamd) olarak çalışır; medya işçisine gömülmez. Tarama tek başına güvenlik garantisi değildir; karantina ve izole dönüştürme ile birlikte kullanılır. Boyut limitleri ve imza güncelliği §14.2'de. [ClamAV](https://docs.clamav.net/) |
 | Dosyalar | **S3 uyumlu ObjectStorage arayüzü** | Üretimde yönetilen özel depolama tercih edilir; sağlayıcı henüz seçilmez. S3 uyumluluğu arşiv özelliği var demek değildir. |
 | E-posta | **Nodemailer/SMTP adaptörü** veya sağlayıcı API adaptörü | Üretimde güvenilir dış e-posta hizmeti; ilk sürümde kendi posta sunucumuzu işletmeyiz. |
 | Test | **Vitest + Playwright**, gerçek PostgreSQL entegrasyon testleri | Saf kural, transaction, yetki ve kullanıcı akışı ayrı seviyelerde doğrulanır. |
@@ -160,12 +166,14 @@ tests/
   e2e/                 # Müşteri, personel ve anonim senaryolar
   security/            # Yetki, RLS, dosya, cache, webhook kontrolleri
 infra/                 # Dağıtım tarifleri; sır içermez
-docs/                  # Bu şartname, karar kayıtları, işletim notları
+docs/                  # Şartname (docs/Proje.md), karar kayıtları (ADR), veri envanteri, işletim notları, runbook
+.github/               # PR şablonu, CI iş akışları, CODEOWNERS
+AGENTS.md              # Ajanlar için kısa çalışma kuralları (en çok ~2 sayfa)
 ```
 
 **Bağımlılık yönü:** Web/worker → application → domain + repository portları. Dış sağlayıcılar integrations adaptörleridir. Domain React, Next.js, SMS veya S3 SDK'sına bağımlı olmaz. Web bileşenleri DB'ye doğrudan sorgu göndermez. Bir modül diğer modülün tablosuna rastgele yazmaz; ilgili use-case çağrılır.
 
-**Alan modülleri:** identity, access, venue, availability, leads, booking, appointments, offers, wedding-workspace, approvals, conversations, documents, billing-ledger, notifications, media, publications, content, assistant, audit.
+**Alan modülleri:** identity, access, venue, availability, leads, booking, appointments, offers, event-workspace, approvals, conversations, documents, billing-ledger, notifications, media, publications, content, assistant, audit.
 
 Server Actions ve route handler'lar ince giriş katmanlarıdır; aynı application servislerini çağırırlar. Bu giriş noktalarının tamamı dışarıdan çağrılabilir kabul edilir. Kullanılmayan GraphQL/tRPC veya ikinci bir backend framework'ü eklenmez.
 
@@ -179,16 +187,24 @@ Server Actions ve route handler'lar ince giriş katmanlarıdır; aynı applicati
 
 Better Auth'un sosyal giriş akışlarının varsayılan 2FA davranışı credential akışlarıyla aynı değildir. Bu nedenle “personelin 2FA ayarı açık” kontrolü tek başına yeterli kabul edilmez. Yönetim servisleri doğrulanmış personel oturumu ve tamamlanmış MFA aşamasını sunucuda şart koşar. [2FA davranışı](https://better-auth.com/docs/plugins/2fa)
 
+**Better Auth doğrulama listesi (K03; kodlamadan önce ADR'ye yazılır):**
+
+- Oturum önbelleği (cookie cache/stateless oturum özelliği) açıksa üyelik/oturum iptalinin etkili olma gecikmesi ölçülür. Personel oturumları ve yüksek riskli işlemler her istekte veritabanından doğrulanır; müşteri tarafında kabul edilen azami gecikme (öneri ≤1 dk) yazılı karar olur.
+- Sağlayıcı access/refresh token'ları gerekmedikçe saklanmaz; saklanıyorsa şifreli ve asgari kapsamlıdır. İlk sürümde sosyal sağlayıcı API'lerine kullanıcı adına çağrı yapılmaz; yalnız kimlik bilgisi alınır.
+- Müşteri ve personel yapılandırmaları ayrı `basePath`, cookie adı/öneki ve tablo şemasıyla kurulur; aynı kullanıcı tablosunu paylaşmaz. Adapter ve migration uyumu ilk haftada kanıtlanır; uyumsuzsa personel kimliği için ayrı örnek/şema ADR ile çözülür.
+- Better Auth sürümü sabitlenir; güvenlik duyuruları izlenir ve her yükseltmeden sonra T-09/T-11/T-12/T-33 yeniden koşturulur.
+
 **Zorunlu kurallar:**
 
 1. E-posta eşleşti diye farklı sosyal hesaplar kendiliğinden birleştirilmez. Bağlama, mevcut hesaba giriş + yeniden doğrulama + yeni sağlayıcı doğrulaması gerektirir.
 2. Apple gizli e-posta adresi veya Facebook'tan e-posta gelmemesi hata varsayımıyla hesap sahipliğine dönüştürülmez. İletişim adresi ayrıca doğrulanabilir; kimlik anahtarı e-posta değildir.
 3. Hesap açılması, telefon doğrulanması ve düğün üyeliği üç farklı durumdur. Telefon doğrulaması bir düğünün sahibi olduğunu kanıtlamaz.
-4. Düğün daveti yüksek entropili, DB'de hash'i tutulan, süreli ve tek kullanımlık token'dır. Varsayılan 48 saat. Giriş yapan hesap + davetin hedef iletişim kanalının kanıtı + atanan rol birlikte kontrol edilir. Davet token'ı tek başına devredilebilir kalıcı erişim sağlamaz.
-5. Müşteri telefonu E.164 biçiminde tutulur. SMS doğrulamasında süre, deneme limiti ve gönderim kotası vardır. OTP düz metin loglanmaz.
+4. Düğün daveti yüksek entropili, DB'de hash'i tutulan, süreli ve tek kullanımlık token'dır. Varsayılan 48 saat. Davet oluşturulurken tek bir hedef kanala (doğrulanmış e-posta veya E.164 telefon) bağlanır (`event_invitation`). **Kanal kanıtı** kabul sırasında şu iki yoldan biriyle tamamlanır: (a) giriş yapan hesabın sağlayıcıca doğrulanmış e-postası davetin hedef e-postasıyla eşleşir (Apple gizli/relay adresi ve doğrulanmamış e-posta eşleşme sayılmaz); (b) hedef kanala kabul anında gönderilen ikinci, kısa ömürlü, tek kullanımlık kod girilir. Yalnız bağlantıyı açmak ve oturum açmak yeterli değildir; başkasına iletilmiş bağlantı kanal kanıtı olmadan üyelik üretmez. Token tüketimi, kanal kanıtı ve üyelik kaydı tek transaction'dadır; başarısız deneme sayısı sınırlıdır (öneri 5). Atanan rol de aynı kontrolün parçasıdır. Davet token'ı tek başına devredilebilir kalıcı erişim sağlamaz.
+5. Müşteri telefonu E.164 biçiminde tutulur. SMS doğrulamasında süre, deneme limiti ve gönderim kotası vardır. OTP düz metin loglanmaz. OTP gönderimi numara, IP/cihaz ve ülke öneki başına hız limitine ve işletme toplam SMS bütçesine tabidir; izinli ülke öneki listesi işletme ayarıdır (öneri: +90 ile başla) ve olağandışı gönderim/doğrulama oranı alarm üretir (SMS pumping).
 6. Oturum cookie'si HttpOnly/Secure olur; SameSite ve callback ayarları sağlayıcıya uygun test edilir. Sosyal callback için gerekli istisna bütün uygulamada CSRF korumasını gevşetmez. Token localStorage'da tutulmaz.
 7. Sunucuda oturum iptali, cihaz/oturum listesi ve hesabı kilitleme vardır. İlk personel kurulumu tek kullanımlık güvenli bootstrap ile yapılır; varsayılan parola veya herkese açık admin kayıt ekranı yoktur.
 8. MFA sıfırlama ve hesap kurtarma denetlenebilir sahiplik doğrulaması gerektirir. Destek personeli yalnız e-posta/telefon bilerek müşteriye erişim veremez.
+9. Sosyal sağlayıcı hesabına erişemeyen veya sağlayıcısı olmayan müşteri için ilk sürümde yedek giriş yolu yoktur; kurtarma, personelin sahiplik doğrulamasıyla (madde 8) yeniden davet göndermesiyle yapılır. E-posta bağlantısı/OTP ile ek giriş ayrı ADR ve ürün sahibi kararıdır (§23).
 
 Apple hizmet kimliği, domain/callback kaydı, anahtar yaşam döngüsü; Facebook uygulama erişimi ve Google OAuth yapılandırması üretim önkoşullarıdır. Dış hesap açma, inceleme, ücret veya onay süreleri kod tesliminin içinde garanti edilmez. Sağlayıcı giriş ve hesap silme bildirimleri ilgili güncel dokümanlara göre işlenir. [Apple](https://better-auth.com/docs/authentication/apple), [Facebook](https://better-auth.com/docs/authentication/facebook), [Hesap bağlama](https://better-auth.com/docs/concepts/users-accounts)
 
@@ -218,31 +234,31 @@ Tek işletme ile başlanır; alan tablolarında `organization_id` bulunur. Bu ge
 | Varlık | Temel alanlar / ilişkiler |
 |---|---|
 | `organization` | İsim, timezone, iletişim, ayar sürümü |
-| `venue_space`, `resource`, `space_resource` | Satılabilir alanlar, fiziksel çakışma kaynakları, kapasite ve aktiflik |
+| `venue_space`, `resource`, `space_resource` | Satılabilir alanlar, fiziksel çakışma kaynakları, kapasite ve aktiflik; `resource.kind` (fiziksel alan, personel, ziyaret alanı vb.) |
 | `session_template`, `opening_rule` | Yerel saat başlangıç/bitiş, tampon süre, çalışma/tatil düzeni |
 | `customer_user`, `staff_user` | Ayrı kimlik alanları; auth tabloları kütüphane şemasıyla yönetilir |
 | `staff_membership`, `staff_assignment` | İşletme rolü, düğün ataması, izinler |
 | `lead`, `reservation_request` | İletişim, istenen tarih/alan, davetli sayısı, kaynak, durum |
 | `appointment` | Ziyaret saati, süre, atanmış personel, durum |
-| `wedding_event`, `event_member` | Özel müşteri çalışma alanı, etkinlik durumu, üyelik/izin/iptal |
+| `event`, `event_member`, `event_invitation` | Özel müşteri çalışma alanı, `event_type` (düğün, nişan, kına vb.; ayarlanabilir), durum, üyelik/izin/iptal; davet: hedef kanal, rol, token hash, son kullanma, tüketim ve deneme sayacı |
 | `booking`, `resource_allocation`, `resource_closure` | Etkinlik ve booking durumu; kaynak başına bloke zaman aralığı ve `blocking`; bakım/kapanış kayıtları |
 | `booking_change`, `status_history` | Tarih değişikliği önerileri, geçiş gerekçeleri ve sürüm |
-| `offer`, `offer_version`, `offer_line` | Teklif, değişmez teklif sürümü, hizmet/tutar/dahil olanlar |
-| `task_template`, `wedding_task` | Şablon sürümü, düğüne kopyalanan görev, sorumlu, vade, durum |
+| `offer`, `offer_version`, `offer_line` | Teklif, değişmez teklif sürümü, hizmet/tutar/dahil olanlar; KDV oranı ve KDV hariç/dahil tutar |
+| `task_template`, `event_task` | Şablon sürümü, düğüne kopyalanan görev, sorumlu, vade, durum |
 | `board_post`, `board_comment`, `internal_note` | Müşteri panosu ve yorum; iç not ayrı tablo/use-case |
 | `approval_request`, `approval_decision` | Onaylanacak değişmez sürüm, yetkili kişiler, karar ve zaman |
 | `conversation`, `conversation_member`, `message` | Düğün bağlamlı sohbet, alıcı kapsamı, istemci mesaj anahtarı, sıra |
 | `document`, `document_version` | Özel belge, sürüm, erişim grubu, medya referansı |
-| `payment_schedule`, `payment_entry` | Vade planı, ödeme/tahsis/ters kayıt; para birimi ve küçük birim tutarı |
+| `payment_schedule`, `payment_entry` | Vade planı, ödeme/tahsis/ters kayıt; para birimi ve küçük birim tutarı; KDV oranı, KDV hariç/dahil tutar ve fatura referansı (kayıt amaçlı) |
 | `media_asset`, `media_variant`, `album`, `album_item` | İşleme durumu, sahiplik, erişim, türevler, object key, boyut/hash |
 | `upload_intent` | Yükleyen aktör, üst varlık, karantina anahtarı, boyut/tür sınırı, son tarih, doğrulanmış object sürümü |
 | `media_restore_job`, `retention_policy` | Arşiv geri çağırma, maliyet/limit, saklama kuralı |
 | `invitation_publication`, `publication_version`, `publication_consent` | Ayrı yayımlanabilir DTO, görünürlük, sürüm, onaylar, token hash |
-| `notification_preference`, `notification`, `delivery` | Kullanıcı tercihi, uygulama içi kayıt, kanal/alıcı başına gönderim durumu |
+| `notification_preference`, `notification`, `delivery` | Kullanıcı tercihi, uygulama içi kayıt, kanal/alıcı başına gönderim durumu; bounce/şikayet/iptal kaynaklı bastırma kaydı (`contact_suppression`) |
 | `outbox_event`, `webhook_receipt`, `idempotency_record` | Kalıcı yan etki niyeti, webhook tekilleştirme, komut tekrarları |
-| `realtime_inbox` | Kullanıcıya göre artan sıra ve asgari değişiklik bildirimi; sınırlı saklama |
+| `realtime_inbox`, `realtime_counter` | Kullanıcıya göre artan sıra, kullanıcıya ait kilitlenen sayaç satırı ve asgari değişiklik bildirimi; sınırlı saklama |
 | `content_page`, `content_revision`, `faq_entry` | Kontrollü yapılandırılmış içerik, taslak/yayın, chatbot onaylı bilgi |
-| `audit_event`, `consent_record`, `deletion_request` | Denetim, amaç/sürüm bazlı tercih ve veri yaşam döngüsü |
+| `audit_event`, `consent_record`, `data_subject_request`, `deletion_ledger` | Denetim; amaç/sürüm bazlı tercih; ilgili kişi başvurusu (erişim/düzeltme/silme) ve veri yaşam döngüsü; yedek geri yüklemede yeniden uygulanan silme defteri |
 
 ### 8.1 Veri bütünlüğü
 
@@ -255,6 +271,7 @@ Tek işletme ile başlanır; alan tablolarında `organization_id` bulunur. Bu ge
 - İndeksler: kaynak+zaman çakışması; etkinlik+oluşturulma zamanı; konuşma+mesaj sırası; kullanıcı+bildirim durumu; outbox işlenme zamanı; sağlayıcı+mesaj kimliği.
 - Sayfalama anahtarlı/cursor tabanlıdır. Portal listelerinin varsayılan sayfa boyutu 20, üst sınırı 100'dür. Kamu sorgularında tarih aralığı en fazla 31 gün; sınır sunucuda uygulanır.
 - Üretimde şema senkronize eden “push” komutu kullanılmaz; sürümlü migration incelenir. Geriye uyumlu genişlet → veri taşı → daralt yaklaşımı tercih edilir.
+- `event_type` kontrollü bir değerdir; yalnız düğünle başlanır, diğer türler ayar/konfigürasyonla açılır. Türe göre değişen şablonlar (görev, teklif) veri olarak tutulur; koşullu kodla çoğaltılmaz.
 
 ## 9. Rezervasyon ve uygunluk motoru
 
@@ -280,16 +297,20 @@ Talep ve teklif tarih kapatmaz. `held` yönetici yetkisiyle açılır; varsayıl
 
 Kesinleştirme; yetkili personelin açık komutuyla, gereken teklif/sözleşme/kapora kontrol listesi tamamlanınca yapılır. İşletmenin belge ve kapora şartları henüz belli değildir; şema bunları ayarlanabilir tutar. İstisna yalnız özel yetki ve gerekçeyle kaydedilir. Chatbot veya müşteri teklif kabulü doğrudan `confirmed` üretemez.
 
+Aynı slot için ikinci opsiyon/bekleme listesi ilk sürümde yoktur; `blocking = true` kısıtı aynı kaynakta iki aktif tutmaya izin vermez. İşletme isterse bu, sıra/öncelik modeliyle ayrı görev olarak tasarlanır (§23).
+
 ### 9.3 Çakışmayı engelleyen transaction
 
 1. Actor ve `booking.hold` / `booking.confirm` / `booking.reschedule` izni doğrulanır.
 2. İdempotency anahtarı aktör+komut+payload hash'iyle doğrulanır. Aynı anahtar farklı içerikle kullanılırsa reddedilir.
-3. İlgili kaynak satırları sabit sırada kilitlenir; mevcut rezervasyon değiştirilirse o kayıt da kilitlenir.
+3. İlgili kaynak satırları sabit sırada kilitlenir. **Genel kilit sırası:** önce (varsa) değiştirilen rezervasyon satırı, ardından kaynak satırları `(organization_id, resource_id)` artan sırada. Hiçbir komut bu sırayı tersine çevirmez; çok kaynaklı komutlar kaynakları baştan sıralayarak kilitler.
 4. Kilitler alındıktan sonra tek bir DB karar zamanı alınır (`clock_timestamp` sonucunun sabitlenmiş değeri). Bu kaynaklardaki süresi dolmuş tutmalar aynı transaction'da `expired` yapılır ve blokları kaldırılır. Kilit beklemesinden önce alınmış transaction zamanı süre denetiminde kullanılmaz.
 5. Çalışma kuralı, kapasite, zaman aralığı, tampon ve aktif bloklar yeniden kontrol edilir.
 6. Her kaynak için allocation yazılır/güncellenir. PostgreSQL GiST exclusion constraint, aynı `organization_id + resource_id` için `blocking = true` aralıkların kesişmesini reddeder. `btree_gist` kurulumu migration görevidir.
 7. Domain kaydı, durum geçmişi, audit ve outbox aynı transaction'da yazılır; commit sonrası dış işler yürür.
 8. Conflict güvenli `409 SLOT_UNAVAILABLE` döndürür; karşı müşterinin adı veya booking kimliği dönmez.
+
+**İzolasyon ve hata yönetimi:** Bu transaction'lar `READ COMMITTED` ile çalışır; doğruluğu açık kilitler ve exclusion constraint sağlar. `SERIALIZABLE` varsayılan değildir; seçilirse tam transaction yeniden deneme döngüsü şarttır. `lock_timeout` (öneri 3 sn) ve `statement_timeout` ayarlanır. Hata eşlemesi: exclusion ihlali (`23P01`) → `409 SLOT_UNAVAILABLE`; deadlock (`40P01`), serialization (`40001`) ve lock timeout (`55P03`) → idempotency anahtarı korunarak sınırlı yeniden deneme (en çok 3, jitter'lı), ardından güvenli `409`/`503`. Yeniden deneme kısmi kayıt veya çift outbox üretmez. [İzolasyon](https://www.postgresql.org/docs/current/transaction-iso.html), [kilitleme ve deadlock](https://www.postgresql.org/docs/current/explicit-locking.html), [hata kodları](https://www.postgresql.org/docs/current/errcodes-appendix.html)
 
 Exclusion predicate'ine `expires_at > now()` konmaz. Zamanla kendiliğinden değişen index üyeliği kurulmaz; `blocking` kalıcı durum alanıdır. Süre dolumu işçisi temizler, ayrıca yeni yazma akışı bunu senkron olarak uygular. Worker durursa süresi dolan kayıtlar satış yolunu kalıcı kapatmaz. Public okuma aktiflik hesabını aynı zaman kuralıyla yapar; son karar her zaman yazma transaction'ındadır. [PostgreSQL range constraint](https://www.postgresql.org/docs/current/rangetypes.html), [index ifadeleri](https://www.postgresql.org/docs/current/sql-createindex.html)
 
@@ -305,7 +326,7 @@ Exclusion predicate'ine `expires_at > now()` konmaz. Zamanla kendiliğinden değ
 
 ### 9.5 Ziyaret randevusu ve bakım blokları
 
-Ziyaret talebi personel takvimini otomatik kapatmaz. Kesin randevu, gereken personel ve ziyaret alanını kaynak olarak ayırır; aynı fiziksel kaynak gerçekten kullanılıyorsa düğün rezervasyonuyla da çakışma kontrolüne girer. `resource_allocation`, tam olarak bir `booking`, `appointment` veya `resource_closure` sahibine bağlıdır; XOR/check ve foreign key kuralları uygulanır. Müşteri düğün rezervasyonu gerektirmeyen randevu/bakım satırlarında `event_id` boş olabilir; bunların yetkisi işletme/personel kapsamında ayrıca tanımlanır. Randevu süresi ve personel vardiyaları ayarlanabilir; gerçek süreler uydurulmaz.
+Ziyaret talebi personel takvimini otomatik kapatmaz. Kesin randevu, gereken personel ve ziyaret alanını `resource.kind` ile ayrılmış kaynaklar olarak ayırır; aynı fiziksel kaynak gerçekten kullanılıyorsa düğün rezervasyonuyla da çakışma kontrolüne girer. `resource_allocation`, tam olarak bir `booking`, `appointment` veya `resource_closure` sahibine bağlıdır; XOR/check ve foreign key kuralları uygulanır. Müşteri düğün rezervasyonu gerektirmeyen randevu/bakım satırlarında `event_id` boş olabilir; bunların yetkisi işletme/personel kapsamında ayrıca tanımlanır. Randevu süresi ve personel vardiyaları ayarlanabilir; gerçek süreler uydurulmaz.
 
 ## 10. Müşteri yolculuğu ve düğün çalışma alanı
 
@@ -339,18 +360,20 @@ Teklif satırları, dahil/harici hizmetler, davetli sayısı, tutar, geçerlilik
 
 Ödeme planı takip amaçlıdır. Tahsilat kaydı finans yetkilisince doğrulanır; müşterinin yüklediği dekont otomatik ödeme kanıtı sayılmaz. Geçmiş ödeme silinip değiştirilmez; düzeltme ters kayıt ve yeni kayıtla yapılır. Sözleşme/finans düzenlemeleri yetki, gerekçe ve audit gerektirir.
 
+**KDV ve fatura sınırı:** Teklif ve ödeme satırları KDV oranını, KDV hariç/dahil tutarı ve fatura referansını (numara/tarih/belge bağlantısı) saklar; bunlar kayıt amaçlıdır. Platform e-Fatura/e-Arşiv düzenlemez, GİB entegrasyonu yapmaz ve vergi hesabı sorumluluğu üstlenmez; resmi fatura işletmenin mali müşavir/ön muhasebe sürecinde kesilir, platforma yalnız referansı bağlanır. KDV oranları kodda sabitlenmez, yapılandırılır; tutar tutarlılığı (hariç + KDV = dahil, küçük birimde yuvarlama kuralı) test edilir.
+
 ## 11. Gerçek zamanlı sohbet
 
 **Karar:** Düğün başına müşteri konuşması; mesaj gönderimi yetkili POST ile kalıcı DB kaydına, yeni kayıt bildirimi SSE üzerinden tarayıcıya gider. Personel iç sohbeti müşteri konuşmasıyla birleştirilmez. İlk sürümde yakın rolü müşteri sohbetine otomatik üye olmaz.
 
 - Mesaj kaydedilmeden “gönderildi” işareti verilmez. `clientMessageId + sender + conversation` tekilliği tekrar tıklama/ağ tekrarında kopyayı önler.
 - Sıra sunucu tarafından verilir; istemci saati sıralama otoritesi değildir. Mesaj geçmişi cursor ile alınır; başlangıçta en son 30 mesaj.
-- Konuşma sırası, conversation satırı kilitli transaction içinde atanır. Kullanıcı realtime inbox sırası da kullanıcıya ait sayaç satırı üzerinden kilitle ve ekle işlemiyle üretilir; böylece daha küçük sıra sonradan commit olup cursor arkasında kaybolmaz. Yalnız auto-increment kimliğinin commit sırasını garanti ettiği varsayılmaz.
+- Konuşma sırası, conversation satırı kilitli transaction içinde atanır. Kullanıcı realtime inbox sırası da kullanıcıya ait sayaç satırı üzerinden kilitle ve ekle işlemiyle üretilir; böylece daha küçük sıra sonradan commit olup cursor arkasında kaybolmaz. Bir işlem birden fazla kullanıcının sayacını güncelliyorsa sayaç satırları `user_id` artan sırada kilitlenir; sayaç satırı yoksa `INSERT ... ON CONFLICT` ile oluşturulur. Yalnız auto-increment kimliğinin commit sırasını garanti ettiği varsayılmaz.
 - SSE ilk bağlantıda, yeniden bağlantıda ve akış boyunca üyelik/oturum kontrol eder. Yetki iptalinde kanal kapatılır; her event gönderimi güncel kapsamı doğrular.
 - Akışta ham mesaj/gizli içerik yerine değişiklik kimliği ve sıra taşınır; tarayıcı içeriği yetkili endpoint'ten alır. Yalnız kullanıcıya ait değişiklikler yayımlanır.
 - `Last-Event-ID` sunucu tarafında kullanıcıya göre kapsamlanır. Başka kullanıcının sırası başka kullanıcı akışına erişim vermez.
 - Kalıcı `realtime_inbox`, yeniden bağlanınca kaçırılan değişiklikleri tamamlar. Önerilen saklama 7 gün; daha eski cursor için tam yetkili özet yenilenir.
-- PostgreSQL `LISTEN/NOTIFY` yalnız uyandırma sinyali olarak kullanılabilir; tek kalıcı teslimat kanalı değildir. Her sunucu örneği kendi bağlı istemcilerini uyandırır.
+- PostgreSQL `LISTEN/NOTIFY` yalnız uyandırma sinyali olarak kullanılabilir; tek kalıcı teslimat kanalı değildir. Her sunucu örneği kendi bağlı istemcilerini uyandırır. `LISTEN` oturum durumuna dayandığı için transaction-modlu bağlantı havuzlayıcının (ör. PgBouncer transaction mode) arkasında çalışmaz: her web örneği havuzdan bağımsız, doğrudan tek bir dinleyici bağlantısı açar; bağlantı koparsa yeniden bağlanır ve kaçırdıklarını `realtime_inbox` kaydından tamamlar. Bu bağlantılar DB `max_connections` bütçesine dahildir.
 - İşlem sonrası outbox gecikmesi izlenir. Proxy SSE buffering kapalı, bağlantı limitleri ve heartbeat yapılandırılmış olmalıdır. Uzun bağlantı desteklemeyen host bu tasarım için seçilmez.
 - Bağlantı düşerse “yeniden bağlanıyor” gösterilir. Gerekli durumda görünür sekmede düşük sıklıklı fallback sorgu; sürekli agresif polling yoktur.
 - Bildirim yoğunluğu için peş peşe mesajların e-postası birleştirilebilir. Yönetici SMS seçimi olmadan her sohbet mesajı SMS üretmez.
@@ -407,12 +430,14 @@ Bu iletişim, son kullanıcılar arasında uçtan uca şifreli olarak pazarlanma
 - İmzalı webhook veya sağlayıcının desteklediği güçlü doğrulama kullanılır; yalnız IP allowlist yeterli sayılmaz. Tekrar gönderilen ve sırası bozuk webhook'lar `webhook_receipt` ile yönetilir. `delivered`, geç gelen `accepted` olayıyla geriye düşmez.
 - `accepted` sağlayıcının isteği aldığı, `delivered` sağlayıcının teslim raporu verdiği anlamındadır. Müşterinin okuduğunu kanıtlamaz.
 - SMS/e-posta hizmeti kapalıysa rezervasyon yine güvenle kaydedilir; ilgili bildirim bekleyen/başarısız görünür ve operasyon alarmı üretir.
+- **Kuyruğa ekleme:** pg-boss iş verisiyle aynı PostgreSQL'de olduğundan, `send` çağrısının domain transaction'ına katılıp katılamadığı K04'te kullanılan sürümde doğrulanır. Katılabiliyorsa outbox + dispatcher yalnız dış/ertelenmiş işler için sade tutulur; katılamıyorsa outbox esastır. İki yol aynı olayda birlikte kullanılmaz; seçim ADR'ye yazılır.
+- **E-posta geri dönüşleri:** E-posta sağlayıcısının bounce, şikayet ve engelleme olayları imzalı webhook ile alınır. Kalıcı bounce ve şikayet, adresi `suppressed` yapar; o adrese normal hizmet e-postası gönderilmez (güvenlik/OTP politikası ayrıdır). Panelde neden, gereksiz kişisel veri olmadan görünür.
 
 **Sağlayıcı portları:** `SmsProvider.send`, `lookup`, `verifyWebhook`; `EmailProvider.send`, `verifyWebhook`. İş kodu sağlayıcı SDK'sına bağlanmaz. Adaptör, idempotency/status query/teslim raporu desteklerini açık capability olarak bildirir. Sağlayıcı seçimi test hesabı, veri işleme şartları, alfanümerik başlık, limit ve maliyet kontrolünden sonra yapılır.
 
 ## 13. Takvimde izinli davetiye yayını
 
-**Ayrı yayın modeli:** Özel `wedding_event` kaydının görünürlük bayrağını açmak yasaktır. Kamu için alanları tek tek izinli bir `publication_version` hazırlanır. Özel düğün kaydı, müşteri profili veya albüm nesnesi JSON halinde dışarı aktarılmaz.
+**Ayrı yayın modeli:** Özel `event` kaydının görünürlük bayrağını açmak yasaktır. Kamu için alanları tek tek izinli bir `publication_version` hazırlanır. Özel düğün kaydı, müşteri profili veya albüm nesnesi JSON halinde dışarı aktarılmaz.
 
 ### 13.1 Görünüm
 
@@ -456,7 +481,7 @@ Orijinaller ve türevler ayrı prefix/bucket ve ayrı IAM kurallarıyla tutulur.
 ### 14.2 Yükleme ve işleme akışı
 
 1. Sunucu aktörü, üst kaydı, izin verilen MIME/süre/boyut ve kalan kotayı kontrol eder; `upload_intent` oluşturur.
-2. Dosya uygulama sunucusunun belleğine bütünüyle alınmadan, dar kapsamlı kısa ömürlü yükleme izniyle karantinaya gider. Başlangıçta tek nesneye, sınırlandırılmış boyuta ve oluşturulmuş anahtara izin verilir; genel bucket yetkisi verilmez.
+2. Dosya uygulama sunucusunun belleğine bütünüyle alınmadan, dar kapsamlı kısa ömürlü yükleme izniyle karantinaya gider. İzin tek nesneye, **sunucuda zorlanan** boyut sınırına ve oluşturulmuş anahtara verilir; genel bucket yetkisi verilmez. Önceden imzalı basit PUT bağlantısı tek başına boyut sınırlamaz; bu nedenle boyutu zorlayan imzalı POST politikası (`content-length-range` benzeri) veya sağlayıcı eşdeğeri kullanılır. Sağlayıcı bunu desteklemiyorsa yükleme yetkili geçit üzerinden sayaçlı akışla yapılır. Her durumda tamamlama adımında gerçek boyut `HEAD` ile doğrulanır; sınırı aşan nesne silinir ve `upload_intent` reddedilir.
 3. Tamamlama komutu object boyutu/hash'i ve upload sahibini doğrular. Metadata'ya güvenilmez; uzantı, MIME ve dosya imzası kontrol edilir. Yarım yüklemeler süre dolunca temizlenir.
 4. ClamAV taraması, gerçek decoder doğrulaması, görsel piksel/sıkıştırma bombası limiti, video süre/çözünürlük/track limiti uygulanır. Başarısızlık `rejected` veya tekrar işlenebilir `failed` olur; dosya açılmaz.
 5. İzole işçi düşük yetki, CPU/bellek/zaman limiti ve gereksiz ağ erişimi olmadan çalışır. FFmpeg'e kullanıcıdan serbest komut/URL geçirilmez; dosya protokolleri izin listesine alınır.
@@ -464,6 +489,10 @@ Orijinaller ve türevler ayrı prefix/bucket ve ayrı IAM kurallarıyla tutulur.
 7. Türevlerin varlığı ve bütünlüğü doğrulanınca asset `ready` olur. Aynı işin tekrarı kopya dosya/ücret doğurmayacak asset+sürüm anahtarıyla yönetilir.
 
 Medya durumları: `awaiting_upload → quarantined → scanning → processing → ready`; alternatif `rejected / failed / deleting / deleted`. Arşiv durumu ayrı alandır; işleme durumu ile aynı enum'a sıkıştırılmaz.
+
+**Büyük dosya ve kesintili ağ:** Eşiğin (öneri 20 MB) üstündeki yüklemeler (tanıtım videosu, düğün videosu) çok parçalı ve devam ettirilebilir yüklemeyle yapılır (S3 multipart veya tus gibi bir protokol); parça boyutu, toplam boyut ve eşzamanlı parça sayısı sunucuda sınırlanır. Tamamlanmayan çok parçalı yüklemeler yaşam döngüsü kuralıyla (ör. `AbortIncompleteMultipartUpload`) ve `upload_intent` süre dolumuyla temizlenir; mobil ağda kesilen yükleme kaldığı yerden sürer.
+
+**Tarama servisi:** ClamAV ayrı servis (clamd) olarak çalışır; belleği ve imza veritabanı medya işçisinin kaynak limitinden ayrı hesaplanır. clamd `StreamMaxLength`/`MaxFileSize` ve zaman aşımı değerleri izin verilen en büyük dosyayla uyumlu ayarlanır; limit nedeniyle taranamayan veya tarama servisine ulaşılamayan dosya **asla `ready` olmaz** (`failed`, yeniden denenebilir). İmza güncellemesi (freshclam) izlenir; imza yaşı eşiği aşarsa alarm üretilir ve yeni dosya işleme duraklatılır.
 
 Başlangıç limit önerisi: fotoğraf 20 MB / 40 megapiksel; PDF 20 MB; tanıtım videosu 500 MB / 5 dakika. Bunlar işletme ve altyapı testiyle onaylanır. Büyük düğün videosu/özel albüm için kota profili ayrı görevde belirlenir; ilk günden sınırsız yükleme açılmaz. SVG/HTML/çalıştırılabilir dosya kabul edilmez. Özel PDF ilk sürümde güvenli indirme olarak sunulur; aktif içerikli gömme varsayılan değildir.
 
@@ -521,17 +550,17 @@ Bir S3 uyumlu serviste restore/lifecycle davranışı AWS S3 ile bire bir olmak 
 | Genel ana sayfa | `SiteHeader`, `Hero`, `VenueIntro`, `ServiceList`, `GalleryPreview`, `FAQ`, `ContactSection`, `SiteFooter` | Sunucu; küçük mobil menü istemcide |
 | Uygunluk | `SpaceSelector`, `AvailabilityCalendar`, `SlotList`, `BookingRequestForm` | Genel DTO + küçük etkileşim alanı |
 | Davetiye | `PublicEventHint`, `InvitationView`, `PublicationMedia` | Güncel yayın izni; özel event DTO yok |
-| Müşteri ana alanı | `WeddingSummary`, `PendingActions`, `UpcomingTasks`, `RecentUpdates` | Yetkili sunucu özeti |
+| Müşteri ana alanı | `EventSummary`, `PendingActions`, `UpcomingTasks`, `RecentUpdates` | Yetkili sunucu özeti |
 | Pano | `PostList`, `PostDetail`, `CommentComposer`, `AttachmentList` | Sayfalı veri, üst kaydın erişimi |
 | Sohbet | `ConversationView`, `MessageList`, `MessageComposer`, `ConnectionStatus` | POST + tek kullanıcı SSE bağlantısı |
 | Onaylar | `ProposalVersion`, `ApprovalControls`, `DecisionHistory` | Değişmez sürüm, yetkili karar |
 | Belgeler/ödeme | `DocumentList`, `PaymentSchedule`, `PaymentHistory` | Ayrı izin; gizli dosya geçidi |
 | Galeri | `AlbumGrid`, `PhotoViewer`, `VideoPlayer`, `ArchiveStatus` | İhtiyaçta yükleme, üst varlık izni |
-| Yönetim | `AdminNavigation`, `OperationsCalendar`, `LeadPipeline`, `WeddingWorkspace`, `TeamAssignments` | Personel MFA + izin |
+| Yönetim | `AdminNavigation`, `OperationsCalendar`, `LeadPipeline`, `EventWorkspace`, `TeamAssignments` | Personel MFA + izin |
 | Yönetim iletişimi | `AudienceSelector`, `UpdateComposer`, `NotificationOptions`, `SmsPreview`, `DeliveryHistory` | Kayıt ve niyet aynı transaction |
 | Yönetim güvenliği | `AccessReview`, `SessionRevocation`, `AuditViewer`, `FailedJobs` | Kısıtlı yetki, hassas aksiyonda yeniden doğrulama |
 
-Bileşen adı öneridir; API veya veri sınırı değişmedikçe adlandırma sadeleştirilebilir. Sistem içi enum/sağlayıcı adı ürün metnine taşınmaz. Form hata mesajları Türkçe ve alanla ilişkili olur. Yükleniyor/boş/hata/yetkisiz/bağlantı kesildi durumları tasarımın parçasıdır.
+Arayüz metni etkinlik türüne göre seçilir (“Düğünüm”, “Etkinliğim”); veri modeli genel `event` kullanır. Bileşen adı öneridir; API veya veri sınırı değişmedikçe adlandırma sadeleştirilebilir. Sistem içi enum/sağlayıcı adı ürün metnine taşınmaz. Form hata mesajları Türkçe ve alanla ilişkili olur. Yükleniyor/boş/hata/yetkisiz/bağlantı kesildi durumları tasarımın parçasıdır.
 
 **Erişilebilirlik:** Klavye ile bütün işlemler, görünür focus, yeterli kontrast, form label/hata ilişkilendirmesi, takvim için liste alternatifi, ekran okuyucu etiketleri, azaltılmış hareket ve mobilde yaklaşık 44 px dokunma hedefleri. WCAG 2.2 AA hedefi tasarım/test kontrol listesidir; otomatik araç sonucu tek başına uygunluk iddiası değildir.
 
@@ -577,14 +606,26 @@ RLS, uygulama sunucusu tamamen ele geçirildiğinde sihirli bir güven sınırı
 - Oturum/üyelik iptali, personel ayrılması ve MFA sıfırlaması canlı SSE ile medya dahil erişimi keser. Yüksek riskli işlemde kısa süre önce yeniden doğrulama istenir.
 - Varsayılan personel oturum tavanı 12 saat, boşta kalma 30 dakika; müşteri oturumu 7 gün tavan ve 24 saat boşta kalma önerisidir. Adapter davranışıyla doğrulanır, işletme riskine göre ayarlanır.
 - Denetim kaydı uygulama rolü için append-only'dir. Kritik audit özetleri farklı erişim alanına aktarılabilir. DB yöneticisinin mutlak olarak değiştiremeyeceği iddia edilmez.
-- Paket kilidi, lisans envanteri/SBOM, dependency ve secret taraması CI'da çalışır. Kritik/yüksek bulgu triage edilmeden yayına çıkılmaz; risk kabulü gerekçeli ve süreli olmalıdır.
-- Sıkı request/upload/rate limit; anonim talep, login, OTP, SMS, chatbot ve export için ayrı limitler. Tarama/OTP/LLM maliyeti istismarına karşı işletme toplam bütçesi bulunur.
+- Paket kilidi, lisans envanteri/SBOM, dependency ve secret taraması CI'da çalışır. Kritik/yüksek bulgu triage edilmeden yayına çıkılmaz; risk kabulü gerekçeli ve süreli olmalıdır. Güncelleme ve yama süresi hedefleri §19.6'dadır.
+- Sıkı request/upload/rate limit; anonim talep, login, OTP, SMS, chatbot ve export için ayrı limitler. Tarama/OTP/LLM maliyeti istismarına karşı işletme toplam bütçesi bulunur. OTP/SMS için ayrıca ülke öneki izin listesi, numara/IP/cihaz başına hız limiti ve doğrulama tamamlanma oranı izlemesi vardır (SMS pumping).
 
 ### 17.5 Olay müdahalesi ve yaşam döngüsü
 
 İhlal şüphesinde hesap/oturum iptali, ilgili yayınları durdurma, provider anahtarını döndürme ve etkilenen kapsamı audit üzerinden belirleme prosedürü olur. Kanıtlar korunur; ham müşteri verisi debug amacıyla yeni yere yayılmaz. Bildirim/yasal değerlendirme işletmenin sorumlusuna aittir; bu belge mevzuata uygunluk garantisi vermez.
 
 Saklama süresi veri sınıfına göre belirlenir. Mesaj, medya, auth logu ve finans belgesi aynı otomatik silme süresine bağlanmaz. İşletme kullanım amacı, yasal saklama ve müşteri talebini değerlendirir. Kayıt silme; aktif DB, nesneler, türevler, arşivler ve yedeklerin son kullanma takvimiyle izlenir. Yedek geri yüklemede önceden silinmiş veriyi yeniden yayımlamamak için deletion ledger tekrar uygulanır. Legal hold varsa kapsamı ve gerekçesi ayrı tutulur.
+
+### 17.6 Kişisel veriler ve KVKK
+
+Bu bölüm hukuki görüş değildir; işletme (veri sorumlusu) hukuk danışmanıyla doğrular. Amaç, bu değerlendirmenin dayanağı olacak kayıtları ve akışları mühendislik tarafında baştan sağlamaktır.
+
+- **Veri envanteri (K02'den itibaren canlı belge):** Her kişisel veri alanı için amaç, hukuki dayanak/aydınlatma, saklama süresi, erişen roller, aktarıldığı sağlayıcı ve sağlayıcının işleme yeri yazılır (PRIV-01). Envanter `docs/` altında tutulur ve her yeni alan PR'ında güncellenir.
+- **Aydınlatma ve rıza:** Talep formu, davet kabulü, OTP/telefon doğrulaması, bildirim tercihleri ve yayın onayı ekranlarında ilgili aydınlatma metni gösterilir; sürümü ve gösterim zamanı `consent_record` kaydına yazılır. Açık rıza gereken işlemler (ör. isim/görsel yayını, tanıtım iletisi) hizmet şartı kabulüne gömülmez.
+- **Yurt dışı aktarım:** Google/Facebook/Apple girişi, e-posta/SMS sağlayıcıları, LLM sağlayıcısı ve bulut/CDN kullanımı yurt dışı aktarım olabilir. Sağlayıcı seçiminde işleme yeri ve sözleşme şartları envantere işlenir; işletme gerekli hukuki adımları değerlendirir.
+- **İlgili kişi başvuruları:** Erişim, düzeltme ve silme talepleri `data_subject_request` ile izlenir; yanıt süresi yasal süreyi (KVKK'da başvuruya en geç 30 gün) aşmayacak biçimde panelde sayaçlı görünür. Başvuru sahibinin kimliği §7.1 madde 8 gibi denetlenebilir doğrulanır. Silme kapsamı §17.5'teki hedeflerin tümünü (aktif DB, nesneler, türevler, arşiv, yedek takvimi) ve legal hold'u gözetir.
+- **İhlal bildirimi:** Runbook'ta ihlal tespitinden işletmedeki sorumlu kişiye bildirim akışı ve yasal bildirim süreleri (KVKK'da Kurula en geç 72 saat) yer alır; süreleri ve bildirim metnini işletme doğrular.
+- **Kayıt yükümlülükleri:** VERBİS kaydı gibi işletmeye ait yükümlülüklerin gerekip gerekmediği §23'te işletmeye sorulan bir karardır; platform bunu varsaymaz.
+- **Minimizasyon:** Telefon/e-posta yalnız doğrulama ve bildirim amacıyla tutulur; Facebook/Google/Apple profilinden ad ve e-posta dışında alan alınmaz. Log, analitik ve LLM istekleri §17.3 ve §15'teki gibi maskelenir.
 
 ## 18. API, komut ve olay sözleşmeleri
 
@@ -608,10 +649,10 @@ Saklama süresi veri sınıfına göre belirlenir. Mesaj, medya, auth logu ve fi
 | `POST /api/public/contact` | Anonim, `CreateContactLead` | Mesaj teslimi bildirim kuyruklu |
 | `/api/auth/customer/*` | Better Auth müşteri | Yalnız müşteri kimlik alanı |
 | `/api/auth/staff/*` | Better Auth personel | Davet, credential + TOTP |
-| `POST /api/invitations/accept` | Müşteri oturumu | Süreli token + hedef kanal kanıtı |
-| `GET /api/me/weddings` | Müşteri | Yalnız üyelikleri |
-| `GET /api/weddings/:id/summary` | Düğün üyesi/atanmış ekip | Yetkili özet DTO |
-| `GET/POST /api/weddings/:id/posts` | Kapsam ve paylaşım izni | Müşteri post'u; internal note endpoint'i ayrı |
+| `POST /api/invitations/accept` | Müşteri oturumu | Süreli token + hedef kanal kanıtı (§7.1 madde 4) |
+| `GET /api/me/events` | Müşteri | Yalnız üyelikleri |
+| `GET /api/events/:id/summary` | Düğün üyesi/atanmış ekip | Yetkili özet DTO |
+| `GET/POST /api/events/:id/posts` | Kapsam ve paylaşım izni | Müşteri post'u; internal note endpoint'i ayrı |
 | `POST /api/approvals/:id/decisions` | Yetkili onaylayıcı | Sürüm/hash ve idempotency |
 | `GET/POST /api/conversations/:id/messages` | Konuşma üyesi | Client message tekilliği |
 | `GET /api/realtime` | Oturum sahibi | Kullanıcı kapsamlı tek SSE bağlantısı |
@@ -620,19 +661,21 @@ Saklama süresi veri sınıfına göre belirlenir. Mesaj, medya, auth logu ve fi
 | `POST /api/admin/bookings/:id/reschedule` | Personel `booking.reschedule` | Atomik kaynak taşıma |
 | `POST /api/admin/updates/preview` | Personel paylaşım izni | Hedef kitle, alıcı, SMS önizleme |
 | `POST /api/admin/updates/publish` | Aynı + SMS seçiliyse SMS izni | Preview sürümü, outbox |
-| `POST /api/media/upload-intents` | Üst varlık upload izni | Kota, MIME, object key sınırı |
+| `POST /api/media/upload-intents` | Üst varlık upload izni | Kota, MIME, boyutu zorlayan izin, object key sınırı; büyük dosyada çok parçalı |
 | `POST /api/media/:id/complete` | Upload sahibi/izinli ekip | Gerçek dosya kontrolü, quarantine |
 | `GET/HEAD /api/media/:id/*` | Her istek asset yetkisi | Manifest/segment/range dahil |
 | `POST /api/publications/:id/consents` | İlgili onay tarafı | Tam içerik sürümüne onay |
 | `GET /davetiye/:publicId` | Yayın politikasına göre | Etkin onay, son tarih; özel alan yok |
 | `POST /api/webhooks/sms/:provider` | Sağlayıcı doğrulaması | Replay/duplicate/ordering kontrolü |
+| `POST /api/webhooks/email/:provider` | Sağlayıcı doğrulaması | Bounce/şikayet; replay/duplicate/ordering kontrolü |
 | `POST /api/assistant/message` | Anonim/kullanıcı rate limit | Salt okunur izinli tool'lar |
+| `POST /api/me/data-requests` | Müşteri oturumu | İlgili kişi başvurusu (erişim/düzeltme/silme); süre sayacı |
 
 Aynı kısıtlar Server Action kullanıldığında da geçerlidir. Kamuya açık `admin` URL'sinin tahmin edilemez olması güvenlik kontrolü sayılmaz.
 
 ### 18.3 Domain olayları
 
-Örnek sürümlü olaylar: `reservation.requested.v1`, `booking.held.v1`, `booking.confirmed.v1`, `booking.rescheduled.v1`, `booking.cancelled.v1`, `wedding.post_published.v1`, `message.created.v1`, `approval.requested.v1`, `approval.decided.v1`, `media.ready.v1`, `publication.revoked.v1`.
+Örnek sürümlü olaylar: `reservation.requested.v1`, `booking.held.v1`, `booking.confirmed.v1`, `booking.rescheduled.v1`, `booking.cancelled.v1`, `event.post_published.v1`, `message.created.v1`, `approval.requested.v1`, `approval.decided.v1`, `media.ready.v1`, `publication.revoked.v1`.
 
 Olay zarfı: `eventId`, `type`, `version`, `organizationId`, `aggregateId`, `occurredAt`, `actorRef`, `correlationId`, asgari `payload`. Alıcı listesi geniş kapsamlı müşteri datası olarak her consumer'a dağıtılmaz. Notification consumer kendi izinli alıcılarını belirler. Eski olay versiyonu test edilmiş handler ile işlenir; kırıcı şema değişikliğinde yeni versiyon gerekir.
 
@@ -640,13 +683,14 @@ Olay zarfı: `eventId`, `type`, `version`, `organizationId`, `aggregateId`, `occ
 
 ### 19.1 Başlangıç dağıtımı
 
-- Ayrı **geliştirme**, **staging** ve **üretim** ortamları; ayrı DB, bucket, sağlayıcı sırları ve callback adresleri.
+- Ayrı **geliştirme**, **staging** ve **üretim** ortamları; ayrı DB, bucket, sağlayıcı sırları ve callback adresleri. Staging ilk iskeletten itibaren (K01) gerçek veri içermeden ayakta tutulur; her dikey dilim orada denenir.
 - Uzun yaşayan Node.js web süreci ve SSE destekleyen ters vekil/host. Medya işçisi web'den ayrı kaynak limitinde; bildirim işçisi ayrı kuyruğa öncelik verir.
 - PostgreSQL tercihen yönetilen, otomatik yedekli ve zaman noktasına dönüş destekli hizmet. Self-host zorunluysa aynı geri yükleme/disaster testleri işletmenin sorumluluğunda sağlanır.
 - S3 uyumlu yönetilen depolama ve yalnız kurumsal public medyada CDN. Bölge, sözleşme ve maliyet seçilmeden üretim hesabı açılmaz.
 - Container image non-root, sabitlenmiş bağımlılık/derleme, readiness ve liveness health check içerir. Health endpoint'leri sır, tablo adı veya müşteri istatistiği döndürmez.
 - İlk sürüm tek web örneğiyle çalışabilir; otomatik restart ve bakım prosedürü gerekir. Çoklu örnek başlangıç şartı değildir, ancak session/jobs/locks process belleğine bağlı olmadığı için yatay büyüme mümkün kalır.
 - Kubernetes ve ayrı mikroservis platformu kurulmaz. Seçilen hosting Docker/Node ve sürekli worker çalıştırabilmelidir. Salt statik hosting tek başına yeterli değildir.
+- Bağlantı bütçesi: web havuzu, worker, medya işçisi, SSE `LISTEN` dinleyicileri ve migration bağlantıları DB `max_connections` değerine göre hesaplanır; yönetilen DB'nin bağlantı limiti seçim ölçütüdür.
 
 ### 19.2 Başlangıç hedefleri — ölçülerek kabul edilir
 
@@ -661,12 +705,13 @@ Olay zarfı: `eventId`, `type`, `version`, `organizationId`, `aggregateId`, `occ
 | Video | Tanımlı test ağında p95 başlangıç ≤3 sn hedefi; kalite/cihaz/bağlantı profili raporlanır |
 | Yük senaryosu | İlk kabul için 100 eşzamanlı gezinen oturum + 20 aktif sohbet bağlantısı; gerçek talep varsayımı değildir |
 | Kurtarma | DB RPO ≤15 dk, RTO ≤4 saat başlangıç hedefi; sağlayıcı yeteneği ve gerçek restore testiyle doğrulanır |
+| Maliyet | Aylık tahmini maliyet tablosu gerçek fiyat tekliflerinden K17'de çıkarılır; ürün sahibi aylık tavan belirler (§19.6) |
 
 Bu rakamlar ölçülmüş sonuç veya hizmet taahhüdü değildir. Ajan test koşullarını, cihaz/ağ profilini, veri büyüklüğünü ve sonucu raporlar. Performans kazanmak için güvenlik kontrolü veya özel dosya yetkisi kaldırılmaz.
 
 ### 19.3 İzleme ve arıza davranışı
 
-Ölçümler: hata oranı, API gecikmesi, DB connection pool, başarısız giriş/rate limit, queue derinliği, en eski outbox yaşı, teslim hataları, unknown SMS sayısı, medya işleme süresi, depolama/egress, LLM maliyeti ve SSE yeniden bağlanma oranı.
+Ölçümler: hata oranı, API gecikmesi, DB connection pool, başarısız giriş/rate limit, queue derinliği, en eski outbox yaşı, teslim hataları, unknown SMS sayısı, e-posta bounce/şikayet oranı, ClamAV imza yaşı, medya işleme süresi, depolama/egress, LLM maliyeti ve SSE yeniden bağlanma oranı.
 
 Alarm örnekleri: DB erişilemiyor, uzun outbox gecikmesi, provider hata artışı, OTP/SMS maliyet sıçraması, medya karantinada birikme, başarısız yedek ve restore doğrulaması. Alarm hedefi işletme tarafından belirlenir; bu belge kimseye mesaj gönderme yetkisi değildir.
 
@@ -679,6 +724,16 @@ DB yedekleri şifreli ve ayrı erişim alanındadır. Nesneler için versiyonlam
 ### 19.5 Mevcut siteden geçiş
 
 Mevcut `kianabahce.com` yayını kullanıcı açıkça onaylamadan değiştirilmez. Kaynak fotoğraflar, marka varlıkları, kullanılan URL'ler ve erişim hakları envanterlenir. Onaylı içerik staging'e taşınır; kişisel veri içeren eski formlar otomatik topluca aktarılmaz. URL yönlendirme/sitemap planı hazırlanır; DNS/TLS ve geri dönüş planı doğrulanır. Üretime geçiş, tasarım ve sistem kabulünden ayrı kullanıcı kararıdır.
+
+### 19.6 İşletme sahipliği, bakım ve maliyet
+
+Ajanlarla geliştirmenin sonunda sistemi **kimin işleteceği** belli olmalıdır. Bu, kod teslimi kadar yayına çıkış koşuludur (§20.3).
+
+- **Sahiplik:** İsimli üç rol atanır: ürün sahibi (iş kararı ve bütçe), teknik sorumlu (dağıtım, yama, alarm yanıtı, sır döndürme; kişi veya dış servis sözleşmesi olabilir) ve güvenlik/ihlal iletişim noktası. Bir rol boşsa K18 başlamaz.
+- **Yama hedefleri (başlangıç önerisi):** Kritik güvenlik açığı 48 saat içinde değerlendirilir, 7 gün içinde yama veya geçici önlem uygulanır; yüksek 14 gün, orta 30 gün. Hedef aşılırsa gerekçeli, süreli risk kabulü yazılır (§17.4).
+- **Düzenli işler:** Haftalık bağımlılık/güvenlik uyarısı triage; aylık izole restore tatbikatı (§19.4); üç aylık erişim gözden geçirme (`AccessReview`) ve kullanılmayan personel/sağlayıcı anahtarı temizliği; yıllık sağlayıcı sırlarının döndürülmesi ile Node.js LTS/Next.js/Better Auth büyük sürüm yükseltme planı. Desteği biten sürümde üretim işletilmez.
+- **Maliyet kalemleri (rakam uydurulmaz; K17'de gerçek tekliflerle doldurulur):** web + worker + medya işçisi barındırma; yönetilen PostgreSQL ve zaman noktasına dönüş; nesne depolama ve çıkış trafiği (video baskın kalem olabilir); CDN; e-posta; SMS (parça başı) ve OTP; LLM kullanımı; alan adı/TLS; izleme ve log saklama; ClamAV'ın bellek ihtiyacı; harici güvenlik incelemesi; tasarım/fotoğraf/içerik hizmetleri.
+- **Bütçe tavanı:** SMS, LLM ve depolama çıkışı için aylık tavan ve %80 uyarı tanımlanır; tavan aşımında yeni normal gönderim/işleme durur, rezervasyon ve mesaj kaydı etkilenmez.
 
 ## 20. Zorunlu testler ve kabul kapıları
 
@@ -696,11 +751,11 @@ Testler uygulamanın satırlarını tekrarlamak için değil, gerçek hata ve ve
 | T-06 | Çok kaynaklı rezervasyonda son kaynak çakışır | Bütün işlem rollback; ilk kaynaklar yanlışlıkla tutulmaz |
 | T-07 | Gece yarısını aşan etkinlik, tamponlar ve timezone | Takvim ve conflict hesabı aynı gerçek aralığı kullanır |
 | T-08 | Müşteri A, B'nin post/mesaj/belge/ödeme/asset ID'sini dener | Hiçbir özel içerik, isim, sayı veya metadata dönmez |
-| T-09 | Üyelik/oturum iptali sonrası açık sohbet ve video | Yeni event/dosya erişimi reddedilir; kanallar kapanır |
+| T-09 | Üyelik/oturum iptali sonrası açık sohbet ve video | Yeni event/dosya erişimi reddedilir; kanallar kapanır; oturum önbelleği açıksa iptal gecikmesi ölçülür ve kabul edilen sınır içinde kalır |
 | T-10 | Bağlamı eksik DB oturumu ve pool reuse | RLS kapalı erişim; önceki isteğin actor'ı taşınmaz |
 | T-11 | Müşteri sosyal cookie'siyle admin API/Action çağrısı | Personel oturumu ve MFA olmadığı için reddedilir |
 | T-12 | Aynı e-posta, farklı sağlayıcı; Apple relay; eksik e-posta | Otomatik yetkisiz hesap birleştirme/düğün bağlama olmaz |
-| T-13 | Kullanılmış/süresi dolmuş/başkasına ait davet token'ı | Üyelik oluşturulmaz; token logda görünmez |
+| T-13 | Kullanılmış/süresi dolmuş/başkasına ait/başkasına iletilmiş davet token'ı; kanal kanıtı eksik hesap | Üyelik oluşturulmaz; deneme sınırı çalışır; token logda görünmez |
 | T-14 | İç not + müşteri SMS seçeneği manipülasyonu | Müşteriye içerik/bildirim gönderilmez; UI ve API korumalı |
 | T-15 | Publication onayı yok veya eski sürüme ait | İsim ve medya public API/HTML/RSC'de bulunmaz |
 | T-16 | Yayın iptali sonrası doğrudan URL, önizleme ve media yolu | Yeni istekler kapalı; cache karışması yok |
@@ -720,6 +775,14 @@ Testler uygulamanın satırlarını tekrarlamak için değil, gerçek hata ve ve
 | T-30 | Mobil, klavye ve azaltılmış hareket kullanımı | Formlar/takvim/oynatıcı kullanılabilir; hover'a bağlı bilgi yok |
 | T-31 | Teklif ödeme düzeltmesi ve tekrarlanan komut | Tutar tutarlı; ters kayıt korunur; kopya tahsilat kaydı yok |
 | T-32 | Staging ortamından gerçek SMS/e-posta göndermeye çalışma | Alıcı allowlist/fake adapter engeller; gerçek müşteriye ileti yok |
+| T-33 | Personel parolasını girmiş fakat TOTP'yi tamamlamamış (veya TOTP'siz kurulmuş) hesap yönetim API/Action çağırır | Reddedilir; MFA aşaması sunucuda şart koşulur |
+| T-34 | Pano, yorum, sohbet, dosya adı, zengin metin ve e-posta şablonuna script/HTML enjeksiyonu; CSV'de `=`, `+`, `-`, `@` ile başlayan alanlar | Kaçışlanır veya temizlenir; çalışan script yok; export'ta formül çalışmaz |
+| T-35 | Sahte, tekrarlanan ve sırasız e-posta bounce/şikayet webhook'u | İmzasız reddedilir; kalıcı bounce adresi bastırılır; durum geriye gitmez |
+| T-36 | Tek numara/IP/ülke önekinden OTP/SMS istismarı; bütçe aşımı | Hız ve bütçe limitleri gönderimi durdurur; alarm üretilir; rezervasyon etkilenmez |
+| T-37 | SSE bağlantısı kopar, `Last-Event-ID` ile yeniden bağlanılır; çok eski cursor; yetki iptali sonrası replay | Kaçırılanlar eksiksiz ve yalnız kullanıcıya ait; eski cursor'da tam özet; iptal sonrası içerik yok |
+| T-38 | Ters kaynak sırasıyla iki çok kaynaklı komut; kilit beklemesi `lock_timeout`'u aşar | Sabit kilit sırası nedeniyle deadlock yok; olursa güvenli yeniden deneme; kısmi kayıt/çift outbox yok |
+| T-39 | İzinli boyutu aşan yükleme (imzalı bağlantıyla), yarım çok parçalı yükleme, tarama limitini aşan dosya, ClamAV erişilemez | Aşan nesne reddedilip silinir; yarım yükleme temizlenir; taranamayan dosya `ready` olmaz |
+| T-40 | İlgili kişi erişim/silme başvurusu | Kapsam (DB, nesne, türev, arşiv, yedek takvimi) ve silme defteri doğru; süre sayacı görünür; başka kişinin verisi sızmaz |
 
 ### 20.2 Definition of Done — her görev için
 
@@ -730,35 +793,33 @@ Testler uygulamanın satırlarını tekrarlamak için değil, gerçek hata ve ve
 - DTO ve loglarda özel veri/sır kontrolü; yeni bağımlılığın sürüm, lisans ve gerekçesi kaydedilmiş.
 - Şema değişikliğinin mevcut veriye etkisi, dağıtım sırası ve geri dönüş yaklaşımı açıklanmış.
 - Sahte provider başarı ekranı üretim başarısı gibi sunulmamış; fake adapter sadece development/test'te etkin.
-- Entegratör incelemesi ve gerekli CI kontrolleri tamamlanmış; kodlama ajanı birleştirme yapmamış.
+- Entegratör incelemesi ve CI kontrolleri tamamlanmış; güvenlik-kritik alan değiştiyse §21.3 insan inceleme kapısı geçilmiş ve PR'a işlenmiş; kodlama ajanı kendi PR'ını birleştirmemiş.
+- Yeni kişisel veri alanı varsa veri envanteri güncel (PRIV-01); mimari karar değiştiyse ADR kaydı eklenmiş.
 
 ### 20.3 Yayına çıkış kapısı
 
 Yetkisiz veri erişimi, çift rezervasyon, customer-admin kimlik karışması, özel medya sızıntısı, sahte kesin ödeme/rezervasyon durumu veya çözümlenmemiş kritik güvenlik açığı varsa yayın **durdurulur**. Görsel olarak tamamlanmış olmak yeterli değildir.
 
-Tüm ilk sürüm modülleri, gerçek provider sandbox/doğrulanmış test alıcıları, restore, operasyon runbook ve kullanıcı kabulü tamamlanır. Test hesabı olmayan OAuth sağlayıcısı “hazır” sayılmaz. Eksik sağlayıcıyı kaldırarak sürüm çıkarmak ürün sahibinin açık kapsam kararıdır.
+Tüm ilk sürüm modülleri, gerçek provider sandbox/doğrulanmış test alıcıları, restore, operasyon runbook ve kullanıcı kabulü tamamlanır. Test hesabı olmayan OAuth sağlayıcısı “hazır” sayılmaz. Eksik sağlayıcıyı kaldırarak sürüm çıkarmak ürün sahibinin açık kapsam kararıdır. Ayrıca bağımsız güvenlik incelemesi (§21.3) tamamlanmamışsa veya bulguları kapatılmamışsa, bakım sahipliği (§19.6) atanmamışsa ya da KVKK kapısı (§17.6) açıksa yayın yapılmaz; ürün sahibi bunlardan birini yazılı risk kabulüyle geçebilir, ancak çözümlenmemiş kritik güvenlik açığı için bu istisna uygulanmaz.
 
-## 21. Depo, `main` yetkisi ve ajan yönetişimi
+## 21. Depo ve ajan çalışma kuralları
 
-### 21.1 Teknik korumalar
+### 21.1 Depo ayarları (hafif)
 
-Önerilen depo GitHub üzerinde private repodur; mevcut depo başka bir sağlayıcıdaysa aynı güvenceler onun özellikleriyle kurulur. Bu belge henüz depo oluşturmaz veya hesabı yetkilendirmez.
+Depo ürün sahibinin GitHub hesabındadır. Bu bölüm bilinçli olarak hafiftir: ajanlar arasında teknik yetki ayrımı, ayrı kimlik veya özel `main` yazma kısıtı gerekmez (ADR-12). Güvenlik beklentisi aşağıdaki kurallar ve §21.3'teki insan inceleme kapılarıyla sağlanır.
 
-1. `main` force-push ve silmeye kapalı; değişiklikler PR üzerinden gelir. Gerekli CI kontrolleri, çözülmüş inceleme yorumları ve güncel ana dal gereklilikleri uygulanır.
-2. `main` güncelleme/birleştirme izni yalnız entegratör servis kimliğinde olur. Kodlama ajanları yalnız görev dallarına yazabilen ayrı kimlikler kullanır.
-3. PR zorunluluğu ile `main` güncelleme kısıtı ayrı değerlendirilir: entegratöre verilen izin tüm PR/test kurallarını atlayan genel bypass'a dönüşmez. Hosting planının gerçek ruleset desteği doğrulanır.
-4. `CODEOWNERS` kritik dizinlerde inceleme ister; tek başına yetki kontrolü değildir. Entegratör kendi PR'sini onaylamış gibi göstermez; sağlayıcı ayrı reviewer gerektiriyorsa bağımsız inceleme ve gereken kullanıcı/ayrı yetkili onayı alınır.
-5. `infra`, auth, access, migrations, publication, secrets ve CI workflow değişiklikleri özellikle incelenir. PR kodu üretim sırlarıyla çalıştırılmaz; fork/agent PR'larına geniş token açılmaz.
-6. CI izinleri asgari; deploy yalnız korumalı environment üzerinden. Üretim dağıtımını repo merge'ü otomatik yetkilendirmez; ürün sahibi onayı ayrı kapıdır.
-7. Kodlama ajanları entegratör token'ını veya sahibin tam yetkili hesabını paylaşmaz. Aynı kullanıcı/home/secret store'u okuyabilen ajanlar için yalnız worktree açmak güvenlik izolasyonu değildir; ayrı yürütme hesabı/container/secret kapsamı gerekir.
-8. Sahip acil kurtarma yetkisini kontrollü tutar. Break-glass kullanımı istisna, kayıtlı ve sonrasında incelenen olaydır. Teknik sağlayıcı/depo sahibi mutlak olarak dışlanabiliyormuş gibi bir garanti verilmez.
+1. `main` force-push ve silmeye kapalı; değişiklikler PR ile gelir ve gerekli CI kontrolleri geçmeden birleştirilmez. Kuralın kapsamı hosting planına bağlıdır; planın desteklemediği kısım çalışma kuralı olarak uygulanır ve K00 raporunda yazılır.
+2. Depo görünürlüğü (public/private) ürün sahibinin kararıdır (§23). Public ise şartname, ADR ve kod kamuya açık kabul edilir: sır, üretim yapılandırması, müşteri verisi ve ayrıntılı açık/zafiyet notu repoya girmez; açık bildirimleri için `SECURITY.md` ve özel bir bildirim kanalı bulunur.
+3. `CODEOWNERS` §21.3'teki güvenlik-kritik dizinler için inceleyen insanı otomatik ister (`auth`, `access`, `db` migration/RLS, `publication`, medya geçidi, `infra`, CI workflow'ları).
+4. PR kodu üretim sırlarıyla çalıştırılmaz; fork/ajan PR'larına geniş token açılmaz. CI izinleri asgari tutulur; üretim dağıtımı yalnız korumalı environment üzerinden ve ürün sahibi onayıyla yapılır, `main` birleştirmesi dağıtımı otomatik yetkilendirmez.
+5. Sır hijyeni (öneri, zorunluluk değil): ajan oturumlarına ürün sahibinin kişisel tam yetkili token'ı yerine yalnız bu depoya ve gereken izinlere sahip, süreli bir token verilir. Sır sızarsa döndürülür (§17.4).
 
 [GitHub korumalı dallar](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches), [ruleset kuralları](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets)
 
 ### 21.2 Ajan çalışma sözleşmesi
 
-- Dal: `feat/Kxx-kisa-konu`, düzeltme `fix/Kxx-kisa-konu`. Her görev ayrı worktree/izole checkout'ta, kabul edilmiş `main` commit'inden başlar.
-- Ajan önce mevcut `AGENTS.md`, bu şartname ve atanan görev sözleşmesini okur. Bu belgenin temel kuralları repo kurulurken `AGENTS.md`ye aktarılır; şu teslimde ikinci dosya oluşturulmaz.
+- Dal: `feat/Kxx-kisa-konu`, düzeltme `fix/Kxx-kisa-konu`. Her görev kabul edilmiş `main` commit'inden ayrı dalda başlar; aynı anda birden fazla ajan çalışıyorsa her biri ayrı çalışma dizini (worktree/checkout) kullanır.
+- Ajan önce `AGENTS.md`'yi, sonra §1, §4, §20.2 ve kendi kartının okuma listesini (§22.4) okur. `AGENTS.md` K00'da yazılır: en çok ~2 sayfa; değişmez kurallar özeti, test/lint/build komutları, dal/PR kuralı, “sormadan yapılmayacaklar” listesi ve şartnamenin ilgili bölümlerine bağlantılar. Şartnamenin kopyası olmaz; çelişkide şartname geçerlidir.
 - Aynı migration veya sözleşme dosyası iki ajana aynı anda verilmez. Ortak contract değişikliği önce küçük PR olarak birleştirilir; tüketici işler ondan başlar.
 - Görev sınırı dışında değişiklik gerekiyorsa bağımlılık/öneri olarak raporlanır. Güvenliği düşüren geçici çözüm, sessiz mock, yetki kontrolünü kaldırma veya test atlama kabul edilmez.
 - Yeni ücretli servis, provider hesabı, üretim sırrı, lisans şartı veya canlıya etkili işlem ajan tarafından kendiliğinden yapılmaz.
@@ -766,69 +827,136 @@ Tüm ilk sürüm modülleri, gerçek provider sandbox/doğrulanmış test alıc�
 - Entegratör merge öncesi değişikliğin gerekli kabul testlerini ve kritik güvenlik sınırlarını doğrular. Çalıştırılmamış testin “geçtiği” yazılmaz.
 - Birleştirme sonrası yeni görev güncel `main`den açılır. Tamamlanan dal/worktree temizliği ayrı ve güvenli yapılır; kullanıcı değişikliği silinmez.
 
+### 21.3 Güvenlik-kritik alanlarda insan inceleme kapıları (zorunlu)
+
+Aynı model ailesinden ajanların birbirini incelemesi ortak kör noktaları paylaşabilir. Bu yüzden aşağıdaki kartların PR'ları birleştirilmeden önce **ajan olmayan, yazılım güvenliği deneyimi olan bir insan** tarafından incelenir. İnceleyeni ürün sahibi atar.
+
+| Kart | İnceleme odağı |
+|---|---|
+| K02 | RLS/FORCE RLS, runtime rolü, ActorContext bağlamı, `SECURITY DEFINER` yardımcıları, işletme/event FK kısıtları |
+| K03 | Müşteri/personel kimlik ayrımı, MFA şartı, oturum iptali, davet token'ı + kanal kanıtı, OAuth yapılandırması |
+| K05 | Kilit sırası, izolasyon, exclusion constraint, hold süre dolumu, hata eşlemesi |
+| K11 | Upload izni ve boyut zorlaması, karantina, medya geçidi yetkisi (HLS/Range), işçi izolasyonu |
+| K13 | Yayın/onay modeli, özel veri → kamu DTO ayrımı, iptal ve cache davranışı |
+| K17 | **Bağımsız harici güvenlik incelemesi / sızma testi** (aşağıda) |
+
+- **Kontrol listesi:** yetki atlatma/IDOR, kimlik karışması, SQL/komut enjeksiyonu, SSRF ve dosya işleme, sır/log sızıntısı, cache karışması, hız limiti ve maliyet istismarı. OWASP ASVS Level 2'den kart kapsamına uygun maddeler seçilir.
+- **Harici inceleme (K17):** Ürün sahibinin seçtiği bağımsız kişi/firma; kapsam yetki modeli, kimlik, medya geçidi, yayın/cache, rate limit ve dağıtım yapılandırmasını içerir. Kritik/yüksek bulgular yayından önce kapatılır ve doğrulanır; kapsam ve sonuç özeti `docs/` altına yazılır.
+- **İnceleyen yoksa:** İlgili kart “incelenmedi” notuyla birleştirilmez. Ürün sahibi yazılı risk kabulüyle ilerlemeye karar verebilir; bu durumda kabul edilen risk K17 harici incelemesinin kapsamına eklenir. Bu istisna çözümlenmemiş kritik güvenlik açığı için geçerli değildir.
+- İnceleme süresi plana dahildir; bir kart incelemede beklerken ona bağımlı olmayan kartlar §22.2'deki kurallarla ilerleyebilir.
+
 ## 22. Parça parça uygulama planı
 
 Bu plan bütün görevleri şimdi başlatma talimatı değildir. Kullanıcı bir görev veya aşama seçer; entegratör kapsamı atar. Bağımlılığı tamamlanmayan görev için geçici gerçek-dışı davranış geliştirilmez. Alt görevler gerektiğinde küçültülür; kabul ölçütleri korunur.
+
+Görev kimlikleri v1.0'dan korunmuştur; v1.1'de eklenen **K20** ve **K21** tablonun sonundadır. Yürütme sırası kimlik sırasından farklıdır ve §22.2'de verilir.
 
 ### 22.1 Görev kartları
 
 | Görev | Önkoşul | Teslim kapsamı | Kabul kanıtı |
 |---|---|---|---|
-| **K00 — Depo ve yönetişim** | Repo/adres ve erişimlerin kullanıcı tarafından verilmesi | Private repo durumu, `main` korumaları, ayrı ajan/entegratör kimlikleri, `AGENTS.md`, PR şablonu ve bu belgenin repo referansı | Kodlama kimliği `main`e doğrudan yazamaz; normal PR kontrolü entegratör için de zorunlu; gerçek yetki matrisi raporu |
-| **K01 — Çalışan proje iskeleti** | K00 | pnpm workspace, Next.js/Node LTS sürüm matrisi, strict TypeScript, lint/build/test CI, env şeması, development/staging ayrımı, fake provider portları | Temiz checkout'tan tekrarlanabilir kurulum; sır taraması; minimal sayfa ve worker health check; henüz gerçek SMS/LLM yok |
-| **K02 — DB, alan temeli ve erişim çekirdeği** | K01 | Organization, customer/staff auth schema taslağı, event/membership, resource modeli, migration altyapısı, ActorContext, DAL, temel RLS; onaylı migration isimleri | Gerçek Postgres'te FK ve T-08/T-10 çekirdek testleri; iki işletme/iki düğün fixture'ı; actor bağlamı yoksa deny |
-| **K03 — Kimlik ve kontrollü üyelik** | K02 | Better Auth ayrı müşteri/personel instance'ları, Google/Facebook/Apple, personel TOTP, davet kabulü, telefon doğrulama portu, session revoke ve hesap kurtarma | T-09/T-11/T-12/T-13; sosyal hesap admin olamaz; provider sandbox akışları. Gerçek provider yoksa engel açıkça raporlanır |
-| **K04 — Outbox, audit ve işçi temeli** | K02, K03 | Domain event envelope, outbox dispatcher, pg-boss, idempotency kayıtları, audit redaction, retry/failed job altyapısı | T-18; commit öncesi yan etki yok; crash/replay testleri; sahte provider ile deterministik kanıt |
-| **K05 — Rezervasyon motoru** | K02, K03, K04 | Alan/kaynak/seans, hold/confirm/cancel/reschedule, tampon, çalışma kuralı, DB exclusion, hold expiry ve kamu availability DTO | T-01–T-07; paralel transaction testleri; başka müşterinin bilgisi olmayan conflict yanıtı |
-| **K06 — Talep, ziyaret ve teklif akışı** | K05 | İletişim/ön rezervasyon, lead durumları, personel randevu kaynağı, teklif sürümü/kabul, kesinleştirme kontrol listesi ve müşteri daveti | Talep/teklif takvimi otomatik kapatmaz; randevu çakışması engellenir; doğrulanmamış hesap talebi sahiplenemez |
-| **K07 — Kurumsal site ve içerik** | K01, K05, K06; tasarım onayı | Onaylı ekranlara göre server-first genel site, içerik yönetimi, SSS, iletişim ve uygunluk arayüzü; galeri slotları K11/K12'ye bağlı | Mobil/klavye testleri, SEO alanları, JS bütçesi; public API'de özel alan yok; sahte hizmet/kapasite bilgisi yok |
-| **K08 — Düğünüm, pano ve onaylar** | K03, K04, K06 | Müşteri özeti, ayrı iç not/müşteri paylaşımı, yorumlar, görev şablon kopyası, sürümlü seçim/onay, personel ataması | T-08/T-14/T-26; iki müşteri ve yakın rolü senaryosu; aynı iç not müşteri zincirine taşınmaz |
-| **K09 — Özel sohbet ve canlı akış** | K04, K08 | Kalıcı mesaj, client idempotency, SSE/replay, realtime inbox, bağlantı durumu, sayfalı geçmiş | T-09 ve kopya/yeniden bağlantı/yetki iptal testleri; birden fazla web process'te izolasyon; hedef gecikme ölçümü |
-| **K10 — Bildirim, e-posta, SMS** | K03, K04, K08, K09 | Kanal tercihleri, yönetici ek SMS kutusu/önizleme, güvenli şablonlar, sessiz saat/kota, delivery ledger, provider adaptör/webhook | T-18–T-22/T-32; timeout unknown; yinelenen webhook güvenli; test alıcılarıyla sağlayıcı doğrulaması |
-| **K11 — Güvenli dosya/medya temeli** | K02, K03, K04 | Upload intent/quarantine, scanning, sharp/FFmpeg worker, asset/türev şeması, private gateway, arşiv adaptör sözleşmesi | T-08/T-23/T-24; doğrudan segment/HEAD/Range kaçışı yok; medya işi web sürecini tüketmez |
+| **K00 — Depo ve çalışma kuralları** | Depo mevcut; ürün sahibinin görünürlük kararı (§23) | `AGENTS.md` (≤ ~2 sayfa), PR şablonu, `CODEOWNERS`, `SECURITY.md`, temel CI iskeleti (lint/typecheck/sır taraması), `main` için PR+CI kuralı (planın izin verdiği ölçüde), şartnamenin `docs/Proje.md` altına taşınması (v1.1 içeriğiyle) | PR şablonu ve CI iskeleti ilk PR'da çalışır; `main`'e force-push kapalı (planın desteklediği ölçüde, aksi hâlde raporda); `AGENTS.md` şartname değişmezlerine bağlantı verir; kısa durum raporu |
+| **K01 — Çalışan proje iskeleti** | K00 | pnpm workspace, Next.js/Node LTS sürüm matrisi, strict TypeScript, lint/build/test CI, env şeması, development/staging ayrımı, fake provider portları, **staging'e otomatik dağıtım (yalnız health + sürüm, gerçek veri yok)** | Temiz checkout'tan tekrarlanabilir kurulum; sır taraması; minimal sayfa ve worker health check; staging URL'sinde health yeşil; henüz gerçek SMS/LLM yok |
+| **K02 — DB, alan temeli ve erişim çekirdeği** | K01 | Organization, customer/staff auth schema taslağı, `event`/`event_type`/`event_member`/`event_invitation`, `resource` (+`kind`) modeli, migration altyapısı, ActorContext, DAL, temel RLS; onaylı migration isimleri; veri envanteri iskeleti (§17.6) | Gerçek Postgres'te FK ve T-08/T-10 çekirdek testleri; iki işletme/iki düğün fixture'ı; actor bağlamı yoksa deny; **§21.3 insan incelemesi** |
+| **K03 — Kimlik ve kontrollü üyelik** | K02 | Better Auth ayrı müşteri/personel instance'ları (§7.1 doğrulama listesi), Google/Facebook/Apple, personel TOTP, davet kabulü (kanal kanıtı: e-posta eşleşmesi veya ikinci kod), telefon doğrulama portu, OTP limitleri, session revoke ve hesap kurtarma (yeniden davet) | T-09/T-11/T-12/T-13/T-33; sosyal hesap admin olamaz; provider sandbox akışları. Gerçek provider yoksa engel açıkça raporlanır; **§21.3 insan incelemesi** |
+| **K04 — Outbox, audit ve işçi temeli** | K02, K03 | Domain event envelope, outbox dispatcher, pg-boss (+ transaction'a katılım değerlendirmesi/ADR), idempotency kayıtları, audit redaction, retry/failed job altyapısı, `deletion_ledger` ve ledger yeniden uygulama iskeleti | T-18; commit öncesi yan etki yok; crash/replay testleri; sahte provider ile deterministik kanıt |
+| **K05 — Rezervasyon motoru** | K02, K03, K04 | Alan/kaynak/seans, hold/confirm/cancel/reschedule, tampon, çalışma kuralı, DB exclusion, sabit kilit sırası/izolasyon/`lock_timeout` ve hata eşlemesi (§9.3), hold expiry ve kamu availability DTO | T-01–T-07, T-38; paralel transaction testleri; başka müşterinin bilgisi olmayan conflict yanıtı; **§21.3 insan incelemesi** |
+| **K06 — Talep, ziyaret ve teklif akışı** | K03, K05 | İletişim/ön rezervasyon, lead durumları, personel randevu kaynağı, teklif sürümü/kabul, kesinleştirme kontrol listesi; müşteri daveti: kayıt, token üretimi ve kabul akışı (**gönderim K10'da**; o zamana dek fake adaptör); personel için talep/teklif ekranları (yönetim dilimi) | Talep/teklif takvimi otomatik kapatmaz; randevu çakışması engellenir; doğrulanmamış hesap talebi sahiplenemez; davet kabulü fake adaptörle uçtan uca çalışır |
+| **K07 — Kurumsal site ve içerik** | K01, K05, K06, **K20** (onaylı tasarım ve içerik) | Onaylı ekranlara göre server-first genel site, içerik yönetimi, SSS, iletişim ve uygunluk arayüzü; galeri slotları K11/K12'ye bağlı | Mobil/klavye testleri, SEO alanları, JS bütçesi; public API'de özel alan yok; sahte hizmet/kapasite bilgisi yok |
+| **K08 — Düğünüm, pano ve onaylar** | K03, K04, K06 | Müşteri özeti, ayrı iç not/müşteri paylaşımı, yorumlar, görev şablon kopyası, sürümlü seçim/onay, personel ataması; personel çalışma alanı ekranı (yönetim dilimi) | T-08/T-14/T-26/T-34; iki müşteri ve yakın rolü senaryosu; aynı iç not müşteri zincirine taşınmaz; kullanıcı içeriği kaçışlanır |
+| **K09 — Özel sohbet ve canlı akış** | K04, K08 | Kalıcı mesaj, client idempotency, SSE/replay, realtime inbox + sıralı sayaç kilidi, doğrudan (havuzsuz) `LISTEN` bağlantısı, bağlantı durumu, sayfalı geçmiş | T-09, T-37 ve kopya/yeniden bağlantı/yetki iptal testleri; birden fazla web process'te izolasyon; hedef gecikme ölçümü |
+| **K10 — Bildirim, e-posta, SMS** | K03, K04, K08, K09 | Kanal tercihleri, yönetici ek SMS kutusu/önizleme, güvenli şablonlar (davet e-postası/SMS dahil), sessiz saat/kota, delivery ledger, provider adaptör/webhook (SMS ve e-posta bounce/şikayet), OTP maliyet/istismar korumaları | T-18–T-22/T-32/T-35/T-36; timeout unknown; yinelenen webhook güvenli; test alıcılarıyla sağlayıcı doğrulaması |
+| **K11 — Güvenli dosya/medya temeli** | K02, K03, K04 | Upload intent/quarantine, boyutu zorlayan yükleme izni, çok parçalı/devam ettirilebilir yükleme, ayrı ClamAV servisi (limit ve imza izleme), sharp/FFmpeg worker, asset/türev şeması, private gateway, arşiv adaptör sözleşmesi | T-08/T-23/T-24/T-39; doğrudan segment/HEAD/Range kaçışı yok; medya işi web sürecini tüketmez; **§21.3 insan incelemesi** |
 | **K12 — Galeri ve oynatıcı** | K07, K11 | Onaylı kurumsal albüm, responsive görseller, native HLS/hls.js, kontroller, yüklenme/hata durumları | Mobil/Safari/Chromium testi; erişilebilir player; görüntü/video performans ölçümü. Büyük özel albüm ikinci aşama bayrağında |
-| **K13 — İzinli davetiye ve takvim nüansı** | K03, K05, K07, K11 | Publication version/consent, private/link-only/public görünürlük, dokunma/hover/focus kartı, revoke/expiry | T-15/T-16/T-17; onaysız isim DOM/API'de yok; sürüm değişiminde eski onay geçersiz |
-| **K14 — Belgeler ve ödeme takibi** | K06, K08, K11 | Sürümlü özel belge, finans izinleri, vade planı, ödeme/ters kayıt, onaylı teklif bağlantısı | T-08/T-26/T-31; yakın rolü finans göremez; dekont yüklemesi ödeme kesinleştirmez |
+| **K13 — İzinli davetiye ve takvim nüansı** | K03, K05, K07, K11 | Publication version/consent, private/link-only/public görünürlük, dokunma/hover/focus kartı, revoke/expiry | T-15/T-16/T-17; onaysız isim DOM/API'de yok; sürüm değişiminde eski onay geçersiz; **§21.3 insan incelemesi** |
+| **K14 — Belgeler ve ödeme takibi** | K06, K08, K11 | Sürümlü özel belge, finans izinleri, vade planı, ödeme/ters kayıt, onaylı teklif bağlantısı, KDV oranı/tutarı ve fatura referans alanları (§10.5) | T-08/T-26/T-31; yakın rolü finans göremez; dekont yüklemesi ödeme kesinleştirmez; hariç + KDV = dahil tutarlılık testi |
 | **K15 — Sınırlı chatbot** | K05, K07 | Onaylı bilgi kaynağı, sunucu provider adaptörü, salt okunur public tool'lar, bütçe/limit, insan iletişimine geçiş | T-27; bot özel kayıt okuyamaz veya rezervasyon kesinleştiremez; provider kapalıyken SSS çalışır |
-| **K16 — Yönetim bütünleştirmesi** | K05, K06, K08, K09, K10, K11, K13, K14 | Bütünleşik takvim/müşteri çalışma alanı, görev/mesaj/bildirim görünümü, izin yönetimi, failed jobs/audit ve operasyon ayarları | Baştan sona personel+çift senaryosu; doğru audience/SMS önizleme; yetkisiz personel sınırları |
-| **K17 — Staging, güvenlik ve performans kabulü** | K07–K16 tamamlanmış; gerçek test sağlayıcıları | Dağıtım, rate limit, secret/header/cache kontrolleri, kritik test matrisi, yük testi, restore, runbook ve lisans envanteri | T-01–T-32 raporu; çözümlenmemiş kritik sızıntı yok; RPO/RTO ve bütçeler ölçülmüş |
-| **K18 — İçerik geçişi ve kontrollü yayın** | K17 + ürün sahibinin açık yayın onayı | Onaylı eski içerik/URL aktarımı, DNS/TLS, provider üretim ayarları, son backup, rollback ve canlı smoke test | Gerçek müşteri bilgisi içermeyen smoke test; ilk talep/mesajın izlenmesi; geri dönüş doğrulanmış |
+| **K16 — Yönetim bütünleştirmesi** | K05, K06, K08, K09, K10, K11, K13, K14, K21 | Her kart kendi yönetim ekranını teslim ettiği için burada yalnız bütünleştirme: takvim/müşteri çalışma alanı gezintisi, görev/mesaj/bildirim görünümü, izin yönetimi, failed jobs/audit ve operasyon ayarları | Baştan sona personel+çift senaryosu; doğru audience/SMS önizleme; yetkisiz personel sınırları |
+| **K17 — Staging, güvenlik ve performans kabulü** | K07–K16 tamamlanmış; K20; gerçek test sağlayıcıları | Staging'in tam kabulü, rate limit, secret/header/cache kontrolleri, kritik test matrisi, yük testi, restore, runbook, lisans envanteri, **bağımsız harici güvenlik incelemesi (§21.3)**, maliyet raporu (§19.6), KVKK kontrol listesi (§17.6) ve bakım sahipliği teyidi | T-01–T-40 raporu; çözümlenmemiş kritik sızıntı yok; RPO/RTO ve bütçeler ölçülmüş; harici inceleme bulguları kapatılmış veya yazılı risk kabullü |
+| **K18 — İçerik geçişi ve kontrollü yayın** | K17 + ürün sahibinin açık yayın onayı + atanmış bakım sahipleri (§19.6) | Onaylı eski içerik/URL aktarımı, DNS/TLS, provider üretim ayarları, son backup, rollback ve canlı smoke test | Gerçek müşteri bilgisi içermeyen smoke test; ilk talep/mesajın izlenmesi; geri dönüş doğrulanmış |
 | **K19 — Sonraki sürüm paketleri** | İlgili v1 modülleri + kullanıcı kapsam seçimi | Büyük özel albüm, cold storage otomasyonu, push, RSVP, masa planı, gelişmiş rapor veya dış takvim; her biri ayrı alt görev | Kendi kapsamı ve güvenlik/performans ölçütleri yazılmadan toplu geliştirme yapılmaz |
+| **K20 — Tasarım, marka ve içerik hazırlığı** | K00; ürün sahibinin marka varlıkları ve fotoğraf erişimi | Tasarım sistemi (renk/tipografi/bileşen tokenları), kritik ekranların akışı ve onaylı maketleri, gerçek mekân fotoğraf/video envanteri ve gerekirse çekim planı, sayfa metinleri, SSS içeriği, hukuki metin taslakları (gizlilik, çerez, aydınlatma; işletme/uzman onayına) | Ürün sahibinin onayı; kullanım hakkı belli fotoğraf listesi; K07 bu çıktı olmadan başlamaz. Büyük bölümü kod ajanı işi değildir; K00'dan hemen sonra başlatılır |
+| **K21 — Yönetim kabuğu ve operasyon takvimi** | K03, K05 | Personel giriş ekranı, `AdminNavigation`, role/izne göre menü, `OperationsCalendar` (FullCalendar Standard; ay/hafta/liste), hold/confirm/cancel ekranları, boş/yükleniyor/hata/yetkisiz durumları | Staging'de ürün sahibi gerçek personel girişiyle takvimi görür, test hold'u açar ve kesinleştirir; MFA'sız erişim yok; T-01–T-07 arayüz üzerinden de koşar |
 
-### 22.2 Güvenli paralelleştirme
+### 22.2 Yürütme sırası ve güvenli paralelleştirme
 
-- K00 → K01 → K02 → K03 → K04 ortak temel kabul edilmeden bağımsız ajanlar farklı kimlik/veri modeli kurmaz.
-- K04'ten sonra K05 ve K11 farklı modül alanlarında paralel ilerleyebilir. Paylaşılan migration/contract dosyaları entegratörce sıraya alınır.
-- K06 sonrası K07 ve K08 ayrılabilir. K09/K10 bağımlılık sırasını korur.
+- **Temel:** K00 → K01 → K02 → K03 → K04 ortak temel kabul edilmeden bağımsız ajanlar farklı kimlik/veri modeli kurmaz. **K20 (tasarım/içerik) K00'dan hemen sonra, kod görevlerinden bağımsız başlar**; fotoğraf, metin ve onay beklemesi en uzun belirsizlik kalemidir.
+- **İlk kullanılabilir dilim:** K04'ten sonra K05 ve K11 farklı modül alanlarında paralel ilerleyebilir; K05'i K21 izler. Paylaşılan migration/contract dosyaları entegratörce sıraya alınır.
+- K06 sonrası K07 (K20 onaylıysa) ve K08 ayrılabilir. K09/K10 bağımlılık sırasını korur; davet gönderimi K10 ile gerçek kanala bağlanır.
 - K11 sonrası, kendi önkoşulları tamamlanmış K12/K13/K14 ayrı ajanlara verilebilir. K15 kamu sözleşmeleri sabitken paralel yürüyebilir.
 - K16 entegrasyon, K17 kabul ve K18 canlıya geçiştir; modül ajanlarının tek tek “bitti” raporları bunların yerine geçmez.
 - Uzun görev birden fazla PR'a bölünür: önce contract/schema, sonra application servisleri, sonra UI, sonra entegrasyon. Her ara PR ana dalı çalışır durumda tutar; eksik özellik kapalı bayrak arkasındadır.
+- **Dikey dilim kuralı:** Her backend kartı, kendi personel ekranını (§22.1'de “yönetim dilimi”) aynı kartta teslim eder; yönetim arayüzü sona bırakılmaz.
+- **İnsan inceleme beklemesi:** §21.3 kapısındaki kart beklerken, ona bağımlı olmayan kartlar sürer; bağımlı kartlar başlamaz.
+
+**Ürün sahibinin gerçek kullanımı için kilometre taşları (staging):**
+
+| Kilometre taşı | Kartlar | Ürün sahibi ne dener |
+|---|---|---|
+| M1 — Personel takvimi | K05, K21 | Personel girişi, takvim, tutma/kesinleştirme |
+| M2 — Başvurudan davete | K06, K07, K20 | Genel site, talep, teklif, müşteri daveti (fake gönderim) |
+| M3 — Müşteri deneyimi | K08, K09, K10 | Düğünüm, onaylar, sohbet, bildirimler (test alıcılarıyla) |
+| M4 — Medya ve yayın | K11–K15 | Galeri, davetiye, belgeler/ödeme takibi, chatbot |
+
+Her kilometre taşında geri bildirim kayda geçer ve sonraki kartların kapsamına yansıtılır; kapsam değişikliği §1'deki karar kuralına tabidir.
 
 ### 22.3 Kodlama ajanına verilecek görev şablonu
 
 ```text
 Proje: Kiana Bahçe
-Referans: KIANA_BAHCE_PROJE_MIMARISI.md, sürüm 1.0
+Referans: docs/Proje.md, sürüm 1.1
 Atanan görev: Kxx — [başlık]
 Başlangıç commit'i: [entegratörün verdiği SHA]
 Dal/çalışma alanı: [atanmış dal ve izole dizin]
 
-Yalnız bu görevi uygula. Şartnamenin değişmez kurallarını, güvenlik
-sınırlarını, modül/API sözleşmelerini ve Definition of Done bölümünü oku.
+Yalnız bu görevi uygula. Önce AGENTS.md'yi; sonra şartnamenin §1, §4 ve
+§20.2 bölümlerini ve bu görevin okuma listesini (§22.4) oku.
 Önkoşullar: [kabul edilmiş görevler ve ilgili PR'lar]
 Değiştirebileceğin alanlar: [dizin/modül listesi]
 Değiştirmemen gereken sözleşmeler: [liste]
 Teslim: [beklenen davranış ve çıktılar]
 Kabul senaryoları: [ilgili T-xx ve göreve özel kontroller]
 Kapsam dışı: [özellikle yapılmayacak işler]
+İnsan inceleme kapısı (§21.3): [evet/hayır — evetse PR'da inceleyenin onayı şart]
 
 İş verisini sahte başarıyla değiştirme; gerçek sır veya müşteri verisi kullanma.
 Eksik sağlayıcı/erişim ve mimari belirsizliği açıkça raporla.
 Yeni servis, lisans veya güvenlik sınırı değişikliğini kendiliğinden yapma.
-main'e yazma veya merge etme; başka görevi başlatma.
+PR aç; main'e doğrudan yazma, kendi PR'ını birleştirme, başka görevi başlatma.
 Son rapor: değişen davranış, test kanıtı, migration/rollback,
 bilinen sınırlama ve incelemeye hazır PR bağlantısı.
 ```
+
+### 22.4 Görev başına okuma listeleri
+
+Her görevde zorunlu: `AGENTS.md`, §1, §4, §20.2 ve ilgili T-xx senaryoları (§20.1). Aşağıdaki liste bunlara eklenen bölümlerdir.
+
+| Görev | Ek okuma |
+|---|---|
+| K00 | §21, §22 |
+| K01 | §5, §6, §17.4, §19.1, §25 |
+| K02 | §6, §7, §8, §17.2, §17.3, §17.6 |
+| K03 | §7, §12.3 (OTP), §17.2, §17.3, §17.4 |
+| K04 | §8.1, §12.4, §17.5, §18.1, §18.3 |
+| K05 | §8, §9, §18.2 (admin/booking), §19.2 |
+| K06 | §7.1 (davet), §9.2, §9.5, §10.1, §10.5, §12 |
+| K07 | §2, §5.2, §9.4, §16 |
+| K08 | §7.2, §10.2–§10.4, §16, §17.3 |
+| K09 | §11, §17.3, §19.1 (bağlantı bütçesi) |
+| K10 | §12, §17.4, §18.3, §19.3 |
+| K11 | §14, §17.3, §17.4 |
+| K12 | §5.2, §14.3, §16 |
+| K13 | §9.4, §13, §14.1, §14.4 |
+| K14 | §7.2, §8, §10.5 |
+| K15 | §9.4, §15, §17.3 |
+| K16 | §7.2, §16, §19.3 |
+| K17 | §17, §19, §20, §21.3 |
+| K18 | §19.5, §19.6, §20.3 |
+| K19 | Kapsam seçildiğinde kartta yazılır |
+| K20 | §2, §3, §13.1, §16, §19.5, §23 |
+| K21 | §7.2, §9.5, §16, §17.2, §17.4 |
+
+Liste eksik görünürse ajan entegratöre bildirir; entegratör listeyi düzeltir. Liste şartnamenin yerine geçmez; çelişkide ilgili bölüm esastır.
 
 ## 23. Üretim öncesi netleşecek işletme kararları
 
@@ -841,17 +969,24 @@ Bu sorular belgeyi hazırlamayı engellemez. Kodlama ajanı cevabı uydurmaz; il
 | Kesinleştirme şartı ve tutma süresi | 24 saat hold; belge/kapora listesi ayarlanabilir | K06 |
 | İptal, tarih taşıma, teklif ve ödeme koşulları | Sürümlü süreç; otomatik ticari/yasal sonuç yok | K06/K14 |
 | Teklif/sözleşme onay yetkilileri | Düğüne açık atanmış kişiler | K08/K14 |
-| Marka varlıkları ve gerçek hizmet içerikleri | A: doğal zarafet yönü; tasarım henüz onaylı değil | K07 |
+| Marka varlıkları ve gerçek hizmet içerikleri | Doğal zarafet yönü (kırık beyaz, koyu yeşil, şampanya); tasarım ve içerik henüz onaylı değil; K20'yi kimin yürüteceği (tasarımcı, fotoğrafçı, metin yazarı) belirlenir | K20/K07 |
 | Telefon/SMS sağlayıcısı ve bütçe | Adaptör + doğrulanmış numara + yönetici seçimi | K03 gerçek OTP / K10 |
 | E-posta alan adı ve teslim altyapısı | Dış sağlayıcı; SPF/DKIM/DMARC kurulumu | K10 |
 | Apple/Google/Facebook üretim hesapları | Ayrı staging ve üretim callback'leri | K03/K18 |
-| Hosting, depolama bölgesi ve veri işleme şartları | Yönetilen DB/object storage; Node+worker uyumlu host | K17 öncesi |
+| Hosting, depolama bölgesi ve veri işleme şartları | Yönetilen DB/object storage; Node+worker uyumlu host; staging K01'de düşük maliyetle, üretim K17 öncesi | K01 (staging) / K17 |
 | Özel medya kotası ve saklama süreleri | Sınırsız yükleme yok; yapılandırılabilir politikalar | K11/K19 |
 | Müşteri görünürlüğü ve yayın onay metni | Varsayılan kapalı, sürüm ve kapsam bazlı onay | K13 |
 | Bildirim tercihleri, sessiz saat ve acil olay listesi | Normal işlemlerde tercih; SMS varsayılan kapalı | K10 |
-| Gizlilik, çerez, hizmet metinleri ve saklama | Kullanım amaçlarına göre işletme/uzman onayı | K17/K18 |
-| Depo ve gerçek entegratör/ajan kimlikleri | Ayrı yetki ve ortam; ortak token yok | K00 |
+| Gizlilik, çerez, KVKK (aydınlatma/açık rıza metinleri, VERBİS gerekliliği, yurt dışı aktarım) ve saklama | Kullanım amaçlarına göre işletme/uzman onayı; mühendislik tarafında §17.6 kayıtları | K17/K18 |
+| Depo görünürlüğü (public/private) ve ajan token yaklaşımı | Görünürlük ürün sahibi kararıdır; hafif çalışma kuralları (§21) | K00 |
 | Canlıya geçiş tarihi ve kesinti toleransı | Staging kabulünden sonra ayrı onay | K18 |
+| İkinci opsiyon / bekleme listesi | İlk sürümde yok; slot başına tek aktif tutma | K06 |
+| WhatsApp | İlk sürüm dışı; sitede yalnız “WhatsApp ile yazın” bağlantısı mı, ileride Business API mı karar bekler | K07/K10/K19 |
+| Sosyal girişi olmayan/erişemeyen müşteri | Yedek giriş yok; personel destekli yeniden davet | K03 |
+| Etkinlik türleri (düğün, nişan, kına, kurumsal...) | `event_type` ayarlanabilir; ilk sürüm yalnız düğün akışı | K02/K05 |
+| KDV oranları ve fatura süreci | Platform fatura kesmez; yalnız KDV/fatura referans alanları; mali müşavir süreci | K14 |
+| Güvenlik-kritik PR'ları inceleyecek insan ve harici inceleme bütçesi | İnceleyen ürün sahibince atanır; yoksa yazılı risk kabulü + K17 harici inceleme | K02 |
+| Bakım sahibi, yama hedefleri ve aylık maliyet tavanı | §19.6 başlangıç önerileri | K17/K18 |
 
 ## 24. Karar özeti ve değişiklik kaydı
 
@@ -868,9 +1003,27 @@ Bu sorular belgeyi hazırlamayı engellemez. Kodlama ajanı cevabı uydurmaz; il
 | ADR-09 | Yönetilen S3 uyumlu depolama; arşiv adaptörü | Self-host storage, private CDN veya cold otomasyon |
 | ADR-10 | Public bilgi chatbotu, salt okunur araçlar | Özel müşteri verisine erişim veya işlem yapan araçlar |
 | ADR-11 | İlk sürümde ödeme takibi; tahsilat yok | Kart/ödeme altyapısı veya hukuki e-imza entegrasyonu |
-| ADR-12 | Entegratör `main` merge yetkisi, ayrı ajan kimlikleri | Ortak geniş token / kuralsız main yaklaşımı kabul edilmez |
+| ADR-12 | Hafif yönetişim: PR + CI; ajanlar arasında teknik yetki ayrımı yok; güvenlik-kritik alanlarda insan inceleme kapısı | İnsan inceleme kapısının veya CI zorunluluğunun kaldırılması kabul edilmez |
+| ADR-13 | Genel `event` modeli + `event_type`; yalnız düğünle başlanır | Tür başına ayrı tablo/servis ayrımı |
+| ADR-14 | Rezervasyon transaction'ı: `READ COMMITTED`, sabit kilit sırası, `lock_timeout`, sınırlı yeniden deneme | `SERIALIZABLE`'a veya kilitsiz tasarıma geçiş |
+| ADR-15 | Platform fatura kesmez; yalnız KDV/fatura referansı | e-Fatura/e-Arşiv veya muhasebe entegrasyonu |
+| ADR-16 | Yükleme: sunucuda zorlanan boyut, çok parçalı/devam ettirilebilir yükleme, ayrı ClamAV servisi | Boyutu zorlamayan izin veya tarama işçisini medya işçisiyle birleştirme |
 
-**Değişiklik kaydı:** v1.0 — konuşmada kabul edilen ihtiyaçlar birleştirildi; teknik seçimler, varsayılanlar, açık kararlar ve 20 görev kartı oluşturuldu. Hiçbir kodlama görevi veya üretim işlemi bu belgeyle kendiliğinden başlatılmadı.
+**Değişiklik kaydı:**
+
+**v1.1 — v1.0 incelemesi işlendi (1 Ekim 2026):**
+
+- *Yönetişim sadeleşti:* tek entegratörün `main` yetkisi, ayrı ajan kimlikleri ve break-glass kuralları kaldırıldı (§1, §4 GOV-01, §21, ADR-12); yerine PR + CI, güvenlik-kritik kartlar için insan inceleme kapıları (§21.3) ve harici güvenlik incelemesi eklendi.
+- *Plan:* K20 (tasarım/marka/içerik) ve K21 (yönetim kabuğu/operasyon takvimi) eklendi; staging K01'e çekildi; her kart kendi yönetim ekranını teslim eder; kilometre taşları M1–M4 (§22.2); K06 daveti K10'a bağlandı; K07 K20'ye bağlandı; kart başına okuma listeleri (§22.4) ve görev şablonu güncellendi.
+- *Kimlik/güvenlik:* davet kanal kanıtı tanımlandı ve T-13 genişletildi; Better Auth doğrulama listesi, yedek giriş kararı, OTP/SMS istismar korumaları (§7.1, §17.4).
+- *Veri/rezervasyon:* `wedding_*` → `event` + `event_type`; `event_invitation`, `realtime_counter`, `deletion_ledger`, `data_subject_request`, `contact_suppression`, `resource.kind` eklendi (§8); kilit sırası, izolasyon ve hata eşlemesi (§9.3); sayaç kilit sırası ve `LISTEN` bağlantı notu (§11).
+- *Dosya/medya:* sunucuda zorlanan boyut, çok parçalı/devam ettirilebilir yükleme, ayrı ClamAV servisi (§14.2).
+- *Bildirim:* pg-boss transaction değerlendirmesi, e-posta bounce/şikayet işleme (§12.4).
+- *Hukuk/ticari/işletim:* KVKK bölümü (§17.6), KDV/fatura sınırı (§10.5), işletme sahipliği/yama/maliyet (§19.6).
+- *Testler:* T-09 ve T-13 güncellendi; T-33–T-40 eklendi (§20.1).
+- *Düzeltmeler:* yazım hatası, artık “A:” ibaresi, dosya yolu tutarlılığı, görev şablonu referansı.
+
+**v1.0 —** konuşmada kabul edilen ihtiyaçlar birleştirildi; teknik seçimler, varsayılanlar, açık kararlar ve 20 görev kartı oluşturuldu. Hiçbir kodlama görevi veya üretim işlemi bu belgeyle kendiliğinden başlatılmadı.
 
 ## 25. Ajanlar için kaynak ve doğrulama notları
 
@@ -878,9 +1031,10 @@ Bağlantılar 1 Ekim 2026 hazırlığında incelenen resmî proje/dokümantasyon
 
 - Sunucu/istemci sınırı: [Next.js Server and Client Components](https://nextjs.org/docs/app/getting-started/server-and-client-components); [Next.js Data Security](https://nextjs.org/docs/app/guides/data-security).
 - Kimlik: [Better Auth açık kaynak deposu](https://github.com/better-auth/better-auth); [hesap bağlama](https://better-auth.com/docs/concepts/users-accounts); [MFA kapsamı](https://better-auth.com/docs/plugins/2fa); [Apple](https://better-auth.com/docs/authentication/apple); [Facebook](https://better-auth.com/docs/authentication/facebook).
-- Veri: [PostgreSQL range ve exclusion](https://www.postgresql.org/docs/current/rangetypes.html); [index kısıtları](https://www.postgresql.org/docs/current/sql-createindex.html); [RLS](https://www.postgresql.org/docs/current/ddl-rowsecurity.html); [NOTIFY](https://www.postgresql.org/docs/current/sql-notify.html); [Drizzle](https://orm.drizzle.team/docs/rqb).
+- Veri: [PostgreSQL range ve exclusion](https://www.postgresql.org/docs/current/rangetypes.html); [index kısıtları](https://www.postgresql.org/docs/current/sql-createindex.html); [RLS](https://www.postgresql.org/docs/current/ddl-rowsecurity.html); [NOTIFY](https://www.postgresql.org/docs/current/sql-notify.html); [Drizzle](https://orm.drizzle.team/docs/rqb); [izolasyon](https://www.postgresql.org/docs/current/transaction-iso.html); [kilitleme](https://www.postgresql.org/docs/current/explicit-locking.html); [hata kodları](https://www.postgresql.org/docs/current/errcodes-appendix.html).
 - İşler ve iletişim: [pg-boss](https://github.com/timgit/pg-boss); [Nodemailer](https://nodemailer.com/); [SSE tarayıcı davranışı](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events).
 - Arayüz: [Tailwind](https://tailwindcss.com/docs/styling-with-utility-classes); [shadcn/ui](https://ui.shadcn.com/docs); [FullCalendar Standard/Premium lisansı](https://fullcalendar.io/license).
 - Medya: [sharp](https://sharp.pixelplumbing.com/); [FFmpeg lisans koşulları](https://ffmpeg.org/legal.html); [hls.js](https://github.com/video-dev/hls.js); [ClamAV](https://docs.clamav.net/); [AWS S3 arşiv geri çağırma örneği](https://docs.aws.amazon.com/AmazonS3/latest/userguide/restoring-objects.html).
 - Kalite: [Zod](https://zod.dev/); [Vitest](https://vitest.dev/guide/); [Playwright](https://playwright.dev/docs/intro); [OpenTelemetry](https://opentelemetry.io/docs/); [OWASP ASVS](https://owasp.org/projects/asvs).
 - Depo: [GitHub branch protection](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches); [ruleset seçenekleri](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets).
+- Kişisel veriler: [KVKK Kurumu](https://www.kvkk.gov.tr/) (aydınlatma, ilgili kişi başvuruları, ihlal bildirimi). Süre ve yükümlülükler işletmenin hukuk danışmanıyla doğrulanır; v1.1'de eklenen PostgreSQL kilitleme/izolasyon ve KVKK kaynakları uygulama görevinde güncel metinle yeniden doğrulanır.
