@@ -1,6 +1,6 @@
 # K02 — DB, alan temeli ve erişim çekirdeği
 
-**Kilometre taşı:** M0 — Temel ve hazırlık (K00–K04, K20) · **Şartname:** §6, §7, §8, §17.2, §17.3, §17.6 · [Plan dizini](README.md)
+**Kilometre taşı:** M0 — Temel ve hazırlık (K00–K04) · **Şartname:** §6, §7, §8, §17.2, §17.3, §17.6 · [Plan dizini](README.md)
 
 > PostgreSQL şeması, migration altyapısı, ActorContext, veri erişim katmanı (DAL) ve RLS. Sonraki bütün kartlar bu temelin üstüne kurulur.
 

@@ -1,6 +1,6 @@
 # K20 — Tasarım, marka ve içerik hazırlığı
 
-**Kilometre taşı:** M2 — Başvurudan davete (K06, K07) · **Şartname:** §2, §3, §13.1, §16, §19.5, §23 · [Plan dizini](README.md)
+**Kilometre taşı:** M2 — Başvurudan davete (K06, K07, K20) · **Şartname:** §2, §3, §13.1, §16, §19.5, §23 · [Plan dizini](README.md)
 
 > Marka, ekran akışları, gerçek fotoğraf/metin ve hukuki metin taslakları. K07'nin önkoşuludur.
 

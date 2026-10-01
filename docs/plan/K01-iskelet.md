@@ -1,6 +1,6 @@
 # K01 — Çalışan proje iskeleti
 
-**Kilometre taşı:** M0 — Temel ve hazırlık (K00–K04, K20) · **Şartname:** §5, §6, §19.1, §22.1 · [Plan dizini](README.md)
+**Kilometre taşı:** M0 — Temel ve hazırlık (K00–K04) · **Şartname:** §5, §6, §19.1, §22.1 · [Plan dizini](README.md)
 
 > Temiz checkout'tan tekrarlanabilir kurulum, çalışan minimal web ve işçiler, CI ve staging'e otomatik dağıtım.
 

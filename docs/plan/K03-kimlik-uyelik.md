@@ -1,6 +1,6 @@
 # K03 — Kimlik ve kontrollü üyelik
 
-**Kilometre taşı:** M0 — Temel ve hazırlık (K00–K04, K20) · **Şartname:** §7, §12.3, §17.2, §17.3, §17.4 · [Plan dizini](README.md)
+**Kilometre taşı:** M0 — Temel ve hazırlık (K00–K04) · **Şartname:** §7, §12.3, §17.2, §17.3, §17.4 · [Plan dizini](README.md)
 
 > Müşteri sosyal girişi, ayrı personel girişi (parola + TOTP), kontrollü düğün daveti, OTP ve oturum yönetimi.
 

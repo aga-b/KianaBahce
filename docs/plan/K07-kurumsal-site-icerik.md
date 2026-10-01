@@ -1,6 +1,6 @@
 # K07 — Kurumsal site ve içerik
 
-**Kilometre taşı:** M2 — Başvurudan davete (K06, K07) · **Şartname:** §2, §5.2, §9.4, §16 · [Plan dizini](README.md)
+**Kilometre taşı:** M2 — Başvurudan davete (K06, K07, K20) · **Şartname:** §2, §5.2, §9.4, §16 · [Plan dizini](README.md)
 
 > Onaylı ekranlara göre server-first genel site, içerik yönetimi, SSS, iletişim/talep formları ve uygunluk arayüzü.
 

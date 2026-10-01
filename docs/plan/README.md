@@ -68,9 +68,9 @@ Kilometre taşları GitHub milestone'larıdır (`M0`–`M5`); her birinin bir ta
 
 | Kilometre taşı | Kartlar | Çıkış ölçütü (ürün sahibi ne dener) |
 |---|---|---|
-| **M0 — Temel ve hazırlık** | K00–K04, K20 | Depo kuralları, çalışan iskelet, DB/RLS çekirdeği, kimlik, outbox/işçi; K20: onaylı tasarım ve içerik. Temiz checkout'ta kurulum, CI yeşil, staging health yeşil. |
+| **M0 — Temel ve hazırlık** | K00–K04 | Depo kuralları, çalışan iskelet, DB/RLS çekirdeği, kimlik, outbox/işçi. Temiz checkout'ta kurulum, CI yeşil, staging health yeşil. |
 | **M1 — Personel takvimi** | K05, K21 | Staging'de gerçek personel girişi (MFA), takvim, test hold'u açma ve kesinleştirme; T-01–T-07 arayüzden de koşar. (K21-07 ürün sahibi kabulü) |
-| **M2 — Başvurudan davete** | K06, K07 | Genel site, talep, ziyaret/teklif, müşteri daveti (fake gönderim). (K07-10) |
+| **M2 — Başvurudan davete** | K06, K07, K20 | Genel site, talep, ziyaret/teklif, müşteri daveti (fake gönderim); K20: onaylı tasarım ve içerik (K20 M0 döneminde, kod hattıyla paralel başlar ve K07'den önce bitmelidir). (K07-10) |
 | **M3 — Müşteri deneyimi** | K08, K09, K10 | Düğünüm, pano, onaylar, sohbet, bildirimler (test alıcılarıyla). (K10-18) |
 | **M4 — Medya ve yayın** | K11–K15 | Galeri, izinli davetiye, belgeler/ödeme takibi, chatbot. (K15-11) |
 | **M5 — Bütünleştirme ve yayın** | K16, K17, K18, (K19) | Uçtan uca personel+çift senaryosu, T-01–T-40 raporu, harici güvenlik incelemesi, canlıya geçiş. K19 sonraki sürümdür; iş paketi yoktur, kapsamı kullanıcı seçince yazılır. |

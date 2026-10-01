@@ -1,6 +1,6 @@
 # K06 — Talep, ziyaret ve teklif akışı
 
-**Kilometre taşı:** M2 — Başvurudan davete (K06, K07) · **Şartname:** §7.1, §9.2, §9.5, §10.1, §10.5, §12 · [Plan dizini](README.md)
+**Kilometre taşı:** M2 — Başvurudan davete (K06, K07, K20) · **Şartname:** §7.1, §9.2, §9.5, §10.1, §10.5, §12 · [Plan dizini](README.md)
 
 > Ziyaretçi talebi, ziyaret randevusu, teklif sürümü/kabulü, kesinleştirme kontrol listesi ve müşteri daveti (gönderim K10'da; o zamana dek fake adaptör), ayrıca personel ekranları.
 

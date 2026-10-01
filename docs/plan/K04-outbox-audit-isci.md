@@ -1,6 +1,6 @@
 # K04 — Outbox, audit ve işçi temeli
 
-**Kilometre taşı:** M0 — Temel ve hazırlık (K00–K04, K20) · **Şartname:** §8.1, §12.4, §17.5, §18.1, §18.3 · [Plan dizini](README.md)
+**Kilometre taşı:** M0 — Temel ve hazırlık (K00–K04) · **Şartname:** §8.1, §12.4, §17.5, §18.1, §18.3 · [Plan dizini](README.md)
 
 > Domain olay zarfı, outbox + dispatcher, pg-boss işçisi, idempotency, audit, log redaksiyonu ve silme defteri.
 

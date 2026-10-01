@@ -1,6 +1,6 @@
 # K00 — Depo ve çalışma kuralları
 
-**Kilometre taşı:** M0 — Temel ve hazırlık (K00–K04, K20) · **Şartname:** §21, §22.1 · [Plan dizini](README.md)
+**Kilometre taşı:** M0 — Temel ve hazırlık (K00–K04) · **Şartname:** §21, §22.1 · [Plan dizini](README.md)
 
 > Depoyu ajanların güvenle çalışabileceği hale getirir: kurallar, şablonlar, CI iskeleti, `main` koruması.
 
