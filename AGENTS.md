@@ -2,6 +2,10 @@
 
 Düğün mekânı platformu (kurumsal site, rezervasyon motoru, düğün çalışma alanı, yönetim paneli). Bu dosya kodlama ajanları içindir; en çok ~2 sayfa tutulur, şartnamenin kopyası **değildir**. Çelişkide [`docs/Proje.md`](docs/Proje.md) (v1.1 şartname) geçerlidir.
 
+## 2026-10-02 kapsam güncellemesi
+
+Kullanıcı tek ajanla iskelet ve public arayüzün birlikte hazırlanmasını istedi. Bu teslimat için `docs/adr/001-public-foundation.md` geçerlidir; tek paket ve main bağımlılığı kısıtının yerini bu belgede kayıtlı bütünleşik kapsam alır. Diğer güvenlik ve yayın kuralları sürer.
+
 ## Bir işe başlamadan
 
 1. Sana verilen iş **tek bir iş paketidir** (ör. `K05-06`). Yalnız onu yaparsın; başka iş paketini başlatmaz, komşu işi "kolay" diye yapmazsın.
@@ -34,7 +38,7 @@ Düğün mekânı platformu (kurumsal site, rezervasyon motoru, düğün çalı�
 ## PR kuralları
 
 - Her iş paketi **tek dal, tek PR**; başlıkta iş paketi kimliği (`K05-06: …`), gövdede `Refs #<issue>`. Şablonu doldur: davranış değişikliği, test kanıtı, migration/geri dönüş, bilinen sınırlama, §21.3 kapısı (evet/hayır), yeni kişisel veri alanı, yeni bağımlılık/lisans.
-- `main`'e doğrudan yazma, force-push yok, **kendi PR'ını birleştirme**. İş paketi "insan inceleme kapısı" taşıyorsa PR'da inceleyen insanın onayı olmadan birleşmez.
+- `main`'e doğrudan yazma, force-push yok, **kendi PR'ını birleştirme**. İş paketi "insan inceleme kapısı" taşıyorsa PR'da inceleyen insanın onayı olmadan birleşmez; yalnız şartname §21.3'teki kapsamı yazılı ürün sahibi risk kabulü istisnası uygulanabilir. Çözümlenmemiş kritik güvenlik açığı için istisna yoktur.
 - Bitti tanımı: şartname §20.2 + iş paketinin tüm "Kabul" maddeleri + listelenen T-xx testleri **çalıştırılmış**. Çalıştırılmayan testi "geçti" yazma; nedenini yaz.
 - Son rapor: değişen davranış, test kanıtı, migration/geri dönüş, bilinen sınırlama, PR bağlantısı.
 
@@ -49,7 +53,7 @@ Düğün mekânı platformu (kurumsal site, rezervasyon motoru, düğün çalı�
 
 ## Komutlar
 
-Henüz kod yok; çalışma alanı, lint/typecheck/test/build komutları **K01** ile eklenir ve bu bölüm o PR'da doldurulur. O zamana dek CI yalnız doküman/sır taraması yapar (K00-04).
+`pnpm install --frozen-lockfile`, `pnpm lint`, `pnpm typecheck`, `pnpm test`, `pnpm check:plan`, `pnpm build`, `pnpm test:e2e`. Ayrıntılar README.md içinde. CI bu kontrolleri çalıştırır; kapsamlı sır taraması ve branch protection henüz tamamlanmış sayılmaz.
 
 ## Bağlantılar
 

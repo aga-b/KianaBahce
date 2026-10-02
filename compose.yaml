@@ -1,0 +1,20 @@
+services:
+  web:
+    build:
+      context: .
+      target: web
+    ports: ["127.0.0.1:3000:3000"]
+    init: true
+    restart: unless-stopped
+  worker:
+    build:
+      context: .
+      target: worker
+    init: true
+    restart: unless-stopped
+  media-worker:
+    build:
+      context: .
+      target: media-worker
+    init: true
+    restart: unless-stopped

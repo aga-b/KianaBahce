@@ -24,6 +24,8 @@ Bu kart **ürün sahibinin ayrı ve açık yayın onayı** olmadan başlamaz ve 
 **Ürün sahibinden gereken:** Canlıya geçiş onayı, penceresi ve kesinti toleransı.
 
 
+**Dokunabileceğin yollar (yalnız bunlar):** `docs/adr/`, `docs/reports/` (yalnız bu kararın kaydı).
+
 **Teslim edilecekler**
 - Ürün sahibi için karar sayfası: canlıya geçiş penceresi, kabul edilebilir kesinti süresi, K17 açık maddeleri (§20.3) ve risk kabulleri özeti, rollback tetikleyicileri, ilk gün izleme sorumlusu; `docs/adr/*-canliya-gecis.md`
 - **Yazılı ve açık onay** (tarih + kapsam) olmadan sonraki WP'ler başlamaz; onay metni ADR'ye ve K18 tracking issue'suna bağlanır

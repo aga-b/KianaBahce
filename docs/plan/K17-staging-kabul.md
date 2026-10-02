@@ -27,6 +27,8 @@
 **Ürün sahibinden gereken:** Bağımsız harici güvenlik inceleyicisi, bütçe ve zamanlama (veya yazılı risk kabulü).
 
 
+**Dokunabileceğin yollar (yalnız bunlar):** `docs/adr/`, `docs/reports/` (yalnız bu kararın kaydı).
+
 **Teslim edilecekler**
 - Ürün sahibi için karar sayfası: inceleyici adayları (kişi/firma), bütçe, kapsam (yetki modeli, kimlik, medya geçidi, yayın/cache, rate limit, dağıtım yapılandırması), zamanlama (K16 sonrası staging erişimi), bulgu raporlama biçimi; yazılı risk kabulü alternatifi ve sınırı (§21.3)
 - Karar `docs/adr/*-harici-inceleme.md` (ürün sahibi onayı); inceleyiciye verilecek **staging erişimi sahte veriyle** hazırlanır

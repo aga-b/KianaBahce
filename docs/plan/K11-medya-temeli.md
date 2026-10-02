@@ -33,6 +33,8 @@ K11, K04-10 sonrası K05 ile paralel başlayabilir (yalnız K02–K04'e bağlıd
 **Ürün sahibinden gereken:** Nesne depolama sağlayıcısı, bölge ve maliyet kararı; staging hesabı.
 
 
+**Dokunabileceğin yollar (yalnız bunlar):** `docs/adr/`, `docs/reports/` (yalnız bu kararın kaydı).
+
 **Teslim edilecekler**
 - Sağlayıcı karşılaştırması: S3 uyumluluğu, boyutu zorlayan imzalı POST politikası, multipart, `AbortIncompleteMultipartUpload`/yaşam döngüsü, sürümleme, restore/arşiv davranışı, veri işleme konumu/şartları, egress ve depolama maliyeti
 - Karar kaydı `docs/adr/*-nesne-depolama.md` (ürün sahibi onayı) ve staging için ayrı bucket/prefix'ler (karantina, özel orijinal, özel türev, kurumsal yayın); yalnız test/staging hesabı, üretim açılmaz
