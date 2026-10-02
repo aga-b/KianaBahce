@@ -1,0 +1,27 @@
+# Üç süreç tek komutla: docker compose -f infra/docker/compose.yaml up --build
+# Yalnız sahte/güvenli ortam değerleri; sır yok. Web yalnız localhost'a bağlanır.
+x-build: &build
+  context: ../..
+  dockerfile: infra/docker/Dockerfile
+x-common: &common
+  init: true
+  restart: unless-stopped
+  read_only: true
+  cap_drop: [ALL]
+  security_opt: ["no-new-privileges:true"]
+  environment:
+    APP_ENV: development
+    SITE_INDEXABLE: "false"
+    FAKE_PROVIDERS_ENABLED: "true"
+services:
+  web:
+    <<: *common
+    build: { <<: *build, target: web }
+    ports: ["127.0.0.1:3500:3000"]
+    tmpfs: [/app/.next/cache, /tmp]
+  worker:
+    <<: *common
+    build: { <<: *build, target: worker }
+  media-worker:
+    <<: *common
+    build: { <<: *build, target: media-worker }
