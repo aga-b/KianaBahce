@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Güvenlik açığı bildirimi
+    url: https://github.com/aga-b/KianaBahce/security/policy
+    about: Güvenlik açıklarını public issue olarak açmayın; SECURITY.md'deki özel kanalı kullanın.

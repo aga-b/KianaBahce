@@ -1,0 +1,36 @@
+name: Hata raporu
+description: Çalışan davranışta hata. Güvenlik açığı ise BU ŞABLONU KULLANMAYIN; SECURITY.md'ye bakın.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Gerçek sır, müşteri verisi veya ayrıntılı zafiyet kanıtı yazmayın; depo public olabilir.
+  - type: textarea
+    id: beklenen
+    attributes:
+      label: Beklenen davranış
+    validations:
+      required: true
+  - type: textarea
+    id: gerceklesen
+    attributes:
+      label: Gerçekleşen davranış
+    validations:
+      required: true
+  - type: textarea
+    id: adimlar
+    attributes:
+      label: Yeniden üretme adımları
+    validations:
+      required: true
+  - type: input
+    id: ortam
+    attributes:
+      label: Ortam ve sürüm
+      placeholder: "development / commit SHA"
+  - type: input
+    id: is-paketi
+    attributes:
+      label: İlgili iş paketi (varsa)
+      placeholder: "K05-06"
