@@ -1,5 +1,23 @@
 import js from "@eslint/js";
 import tseslint from "typescript-eslint";
+
+// Provider SDKs may only be imported inside packages/integrations (K01-05).
+const providerSdkPatterns = [
+  "twilio",
+  "@sendgrid/*",
+  "resend",
+  "postmark",
+  "nodemailer",
+  "@aws-sdk/*",
+  "@vonage/*",
+  "messagebird",
+  "openai",
+  "@anthropic-ai/*",
+  "@google/generative-ai",
+  "@google/genai",
+  "ai",
+  "@ai-sdk/*",
+];
 export default tseslint.config(
   {
     ignores: [
@@ -29,6 +47,13 @@ export default tseslint.config(
     },
   },
   {
+    files: ["**/*.{js,mjs,ts,tsx}"],
+    ignores: ["packages/integrations/**", "packages/domain/**"],
+    rules: {
+      "no-restricted-imports": ["error", { patterns: providerSdkPatterns }],
+    },
+  },
+  {
     files: ["packages/domain/**/*.{ts,tsx}"],
     rules: {
       "no-restricted-imports": [
@@ -41,6 +66,7 @@ export default tseslint.config(
             "next/*",
             "@kiana/integrations",
             "@kiana/db",
+            ...providerSdkPatterns,
           ],
         },
       ],

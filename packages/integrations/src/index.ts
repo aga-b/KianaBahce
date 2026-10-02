@@ -1,2 +1,2 @@
-// Module boundary reserved for the corresponding implementation package.
-export {};
+export type * from "./ports/index.ts";
+export * from "./fakes/index.ts";
