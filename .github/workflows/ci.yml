@@ -22,7 +22,34 @@ jobs:
       - run: pnpm build
       - run: pnpm exec playwright install --with-deps chromium --only-shell
       - run: pnpm test:e2e
-  # Gerekli kontrol adları (K00-05'te branch korumasına eklenecek): "checks" ve "secret-scan".
+  integration:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17.6
+        env:
+          POSTGRES_USER: kiana
+          POSTGRES_PASSWORD: kiana_ci
+          POSTGRES_DB: kiana_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U kiana -d kiana_test"
+          --health-interval 3s --health-timeout 3s --health-retries 20
+    env:
+      TEST_DATABASE_URL: postgres://kiana:kiana_ci@127.0.0.1:5432/kiana_test
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: pnpm/action-setup@f40ffcd9367d9f12939873eb1018b921a783ffaa
+        with:
+          version: 11.25.0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm test:integration
+  # Gerekli kontrol adları (K00-05'te branch korumasına eklenecek): "checks", "integration" ve "secret-scan".
   secret-scan:
     runs-on: ubuntu-latest
     steps:
