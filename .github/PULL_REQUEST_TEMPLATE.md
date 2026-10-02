@@ -1,10 +1,26 @@
+## İş paketi
+<!-- Başlıkta da yazın: "K05-06: ..." · Birleşince issue kapanır -->
+Refs #
+
 ## Davranış değişikliği
+Kullanıcıya veya sisteme görünen ne değişti? Yalnız iş paketinin kapsamı.
 
-## Doğrulama
-Çalıştırılan kontroller ve sonuçlar; çalıştırılmayanların nedeni.
+## Test kanıtı
+Çalıştırılan kontroller ve sonuçlar. **Çalıştırılmayan test açıkça belirtilir** (neden: ...). İş paketindeki T-xx senaryoları:
 
-## Veri ve geri dönüş
-Migration, kişisel veri, bağımlılık/lisans etkisi; geri dönüş.
+## Migration ve geri dönüş
+- Migration var mı? (evet/hayır) — varsa dosya adı ve geri dönüş yolu
+- Geri dönüş (revert) güvenli mi?
 
-## İnceleme ve sınırlar
-İnsan inceleme kapısı (§21.3), bilinen eksikler, ilgili issue'lar.
+## Bilinen sınırlama
+Eksik kalanlar, ertelenenler, açılan `plan-sorunu` issue'ları.
+
+## Güvenlik ve veri
+- §21.3 insan inceleme kapısı: evet / hayır — evetse inceleyen: @
+- Yeni kişisel veri alanı (PRIV-01): evet / hayır — evetse amaç, dayanak, saklama süresi `docs/data-inventory.md` içinde
+- Yeni bağımlılık/lisans: evet / hayır — evetse `docs/dependencies.md` satırı
+- Gerçek sır, müşteri verisi veya ayrıntılı zafiyet notu yok (OPS-01)
+
+## Kapsam
+- [ ] Yalnız iş paketinin "Dokunabileceğin yollar" listesindeki dosyalara dokundum
+- [ ] Başka iş paketinin işini yapmadım
