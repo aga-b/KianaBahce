@@ -1,0 +1,2 @@
+aws_access_key_id = AKIAIOSFODNN7REALKEY
+aws_secret_access_key = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYzEXAMPLEKEY12"
