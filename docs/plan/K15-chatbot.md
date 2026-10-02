@@ -28,6 +28,8 @@ Bot **rezervasyonu kesinleştiremez, tarih tutamaz, SMS gönderemez, yayını a�
 **Ürün sahibinden gereken:** LLM sağlayıcısı, günlük/aylık maliyet tavanı ve chatbot'un açılma kararı.
 
 
+**Dokunabileceğin yollar (yalnız bunlar):** `docs/adr/`, `docs/reports/` (yalnız bu kararın kaydı).
+
 **Teslim edilecekler**
 - Sağlayıcı karşılaştırması: işleme bölgesi, saklama/eğitim şartları, Türkçe kalitesi, maliyet, araç çağırma desteği, zaman aşımı; aylık/günlük maliyet tavanı ve %80 uyarı; oturum başına limit onayı (öneri 10 mesaj/10 dk)
 - Karar `docs/adr/*-llm-saglayici.md`; test API anahtarı korumalı environment'a girilir (ürün sahibi); yurt dışı aktarım envantere işlenir (§17.6), hukuki adımlar işletmeye aittir

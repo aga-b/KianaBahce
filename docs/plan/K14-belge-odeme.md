@@ -26,6 +26,8 @@
 **Ürün sahibinden gereken:** KDV oranları, yuvarlama, fatura referans süreci ve ödeme yöntemleri.
 
 
+**Dokunabileceğin yollar (yalnız bunlar):** `docs/adr/`, `docs/reports/` (yalnız bu kararın kaydı).
+
 **Teslim edilecekler**
 - Ürün sahibi/mali müşavir için karar sayfası: KDV oranları (kodda sabitlenmez, yapılandırılır), varsayılan para birimi (öneri TRY), fiyat girişi KDV hariç mi dahil mi, yuvarlama kuralı, fatura referansı süreci (resmi fatura işletmenin mali müşavir sürecinde kesilir; platforma numara/tarih/belge bağlantısı girilir), ödeme yöntemleri listesi
 - Karar `docs/adr/*-kdv-fatura.md`; hukuki/mali yorum yapılmaz

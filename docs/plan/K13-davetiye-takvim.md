@@ -31,6 +31,8 @@
 **Ürün sahibinden gereken:** Yayın onayı kapsamı, görsel kullanım hakkı süreci ve varsayılan yayın süresi.
 
 
+**Dokunabileceğin yollar (yalnız bunlar):** `docs/adr/`, `docs/reports/` (yalnız bu kararın kaydı).
+
 **Teslim edilecekler**
 - Ürün sahibi için karar sayfası: (1) gerekli onay tarafları (öneri: çiftin iki tarafı hesapla bağlı), (2) temsil/diğer kişi görselleri için işletmenin yetki ve kullanım hakkı süreci, (3) varsayılan yayın bitişi (öneri: etkinlikten 7 gün sonrası), (4) `link_only` ve `public_calendar` varsayılan metinleri, (5) yayın görsel kuralları
 - Karar `docs/adr/*-yayin-onayi.md`; hukuki metin gerektiren kısımlar K20-06 çıktısıyla ve işletme/uzman onayıyla

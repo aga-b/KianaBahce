@@ -35,6 +35,8 @@ Dış sağlayıcı transaction içinde çağrılmaz (NOT-01). Sağlayıcıya kab
 **Ürün sahibinden gereken:** SMS ve e-posta sağlayıcı seçimi (maliyet, veri işleme, başlık kaydı).
 
 
+**Dokunabileceğin yollar (yalnız bunlar):** `docs/adr/`, `docs/reports/` (yalnız bu kararın kaydı).
+
 **Teslim edilecekler**
 - Aday sağlayıcılar için karşılaştırma: test hesabı, veri işleme şartları/konum, alfanümerik başlık (gönderici kimliği) kaydı, limitler, Unicode/Türkçe ücretlendirme, idempotency/status query/teslim raporu/imzalı webhook desteği, bounce/şikayet olayları, maliyet
 - Karar kaydı `docs/adr/*-bildirim-saglayicilari.md` (ürün sahibi onayıyla); seçilmeyen alternatifler ve gerekçe

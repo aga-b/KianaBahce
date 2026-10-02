@@ -7,6 +7,8 @@
 
 **Okuma yolu:** Her görevde zorunlu: `AGENTS.md`, §1, §4, §20.2 ve görev kartının okuma listesi (**§22.4**). Ürün için §2–4; teknik mimari için §5–9; müşteri ve iletişim süreçleri için §10–15; güvenlik ve kişisel veri için §17; uygulama sözleşmeleri için §18; işletim, bakım ve maliyet için §19; kabul için §20; depo ve inceleme kapıları için §21; ajanlara sırayla iş vermek için **§22**. İşletme sahibinden alınacak bilgiler **§23**'tedir. İlk kodlama görevi K00'dır (hafif: `AGENTS.md`, PR şablonu, CI iskeleti); depo mevcuttur.
 
+> 2026-10-02 uygulama sırası güncellemesi: kullanıcının açık talimatıyla tek ajan önce iskelet ve bağımsız public arayüzü hazırlar. Bu teslimatın kapsamı ve mevcut K paketlerinden ayrımı `adr/001-public-foundation.md` içindedir.
+
 ## 1. Belgenin yetkisi ve çalışma biçimi
 
 Bu belge ürün kapsamı, temel teknik kararlar ve kabul kriterleri için ortak referanstır. Kodlama ajanı işe başlarken `AGENTS.md`'yi, §1, §4 ve §20.2'yi ve görev kartının okuma listesini (§22.4) okur; belgenin tamamını okumak zorunlu değildir. Listede olmayan bir bölümün göreve etki ettiği anlaşılırsa entegratöre bildirilir ve liste düzeltilir. Kullanıcının daha sonraki açık talimatı belgeyi değiştirir; ajan bu değişikliği belgeye işlemeden eski ve yeni kuralları karıştırmamalıdır.

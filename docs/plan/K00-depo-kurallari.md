@@ -153,7 +153,7 @@ K00 kod yazmaz. Şartname `docs/Proje.md` altına taşınmış, `AGENTS.md` ve b
 **Başlamadan önce `main`'de olması gerekenler:** yok
 **Ürün sahibinden gereken:** Depo public mı kalacak, private mı olacak?
 
-**Dokunabileceğin yollar (yalnız bunlar):** `SECURITY.md`, `AGENTS.md`
+**Dokunabileceğin yollar (yalnız bunlar):** `SECURITY.md`, `AGENTS.md`, `docs/Proje.md`
 
 **Teslim edilecekler**
 - Ürün sahibinin kararı kayda geçer; `SECURITY.md` ve `AGENTS.md` içindeki görünürlük notu güncellenir

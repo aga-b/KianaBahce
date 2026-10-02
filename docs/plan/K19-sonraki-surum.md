@@ -1,6 +1,6 @@
 # K19 — Sonraki sürüm paketleri
 
-**Kilometre taşı:** M5 — Bütünleştirme, kabul ve yayın (K16–K18) · **Şartname:** §5.3, §22.2 · [Plan dizini](README.md)
+**Kilometre taşı:** M5 — Bütünleştirme, kabul ve yayın (K16–K18) · **Şartname:** §3, §22.2 · [Plan dizini](README.md)
 
 > İlk sürüm dışında kalan paketler: büyük özel albüm, cold storage otomasyonu, push, RSVP, masa planı, gelişmiş rapor, dış takvim.
 

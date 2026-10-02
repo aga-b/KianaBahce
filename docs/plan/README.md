@@ -95,7 +95,7 @@ Aynı anda birden çok ajan çalışabilir; sınır **bağımlılık** ve **yol 
 
 - **Aynı dalga:** Tablodaki (aşağıda) aynı dalgadaki işler birbirine bağımlı değildir; her iş paketi bölümünde "Aynı dalgada paralel çalışabilir" ve "yol çakışması" satırı otomatik üretilmiştir.
 - **Farklı dalga:** Birbirinin ata/torunu olmayan iki iş, dalgaları farklı olsa da paralel yapılabilir (dalga yalnız *en erken* başlama zamanıdır). Her iş paketinin tek geçerli koşulu "Başlamadan önce `main`'de olması gerekenler" satırıdır; ek olarak **başka açık PR'ın aynı yollara dokunmaması**.
-- **Doğrulanmış:** Birbirinin ata/torunu olmayan **hiçbir iki kod iş paketinin** "Dokunabileceğin yollar" kümeleri örtüşmez (üretici betik bunu denetler); paylaşılan noktalar yalnız kural 6'daki ekleme-yalnız küresel izinlerdir.
+- **Kontrol:** `pnpm check:plan` bağımlılık döngüsü, dalga ve yerel bağlantıları denetler. Yol çakışmaları ayrıca PR incelemesinde kontrol edilmelidir; ilk planı üreten betik bu repoda bulunmamaktadır. Paylaşılan ekleme noktaları kural 6'dadır.
 
 **Şeritler (kart düzeyinde):**
 
@@ -144,7 +144,7 @@ Aynı anda birden çok ajan çalışabilir; sınır **bağımlılık** ve **yol 
 
 ## 9. İnsan inceleme kapılı iş paketleri (§21.3)
 
-PR'ları "ajan olmayan, yazılım güvenliği deneyimli bir insan" onaylamadan birleşmez. Bu iş paketlerine bağımlı işler kapı geçilene dek bekler.
+PR'ları "ajan olmayan, yazılım güvenliği deneyimli bir insan" onaylamadan birleşmez. Şartname §21.3 uyarınca kapsamı açık yazılı ürün sahibi risk kabulü istisnadır; çözümlenmemiş kritik güvenlik açığı için uygulanamaz. Bu iş paketlerine bağımlı işler kapı geçilene dek bekler.
 
 **K02 — DB, alan temeli ve erişim çekirdeği**
 
