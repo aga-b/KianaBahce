@@ -1,0 +1,7 @@
+title = "Kiana Bahçe gitleaks"
+
+[extend]
+useDefault = true
+
+# Gerçek sır depoya girmez (OPS-01). İstisna gerekirse burada, gerekçesiyle ve
+# en dar kapsamla (yol veya regex) eklenir; istisna PR'ı insan incelemesi ister.
