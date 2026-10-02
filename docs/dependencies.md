@@ -8,6 +8,7 @@ Tam sürümler package.json ve pnpm-lock.yaml içinde sabittir.
 | TypeScript | Apache-2.0 | Statik tip kontrolü |
 | ESLint / typescript-eslint | MIT | Kod ve modül sınırı kontrolü |
 | Playwright | Apache-2.0 | Tarayıcı kabul testleri |
+| Zod | MIT | Ortam değişkeni şeması (packages/contracts) |
 | axe-core / Playwright adaptörü | MPL-2.0 | Erişilebilirlik denetimi |
 
 Bu teslimat özel CSS tasarım tokenları kullanır; Tailwind/shadcn kurulumu eklenmemiştir. Harici font, analitik, harita veya ücretli servis yoktur.
