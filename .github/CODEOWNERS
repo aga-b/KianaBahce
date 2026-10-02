@@ -1,0 +1,18 @@
+# Güvenlik-kritik alanlar (Proje.md §21.3, §21.1): bağımsız insan incelemesi ister.
+# Sahip: depo sahibi. Ek inceleyen atandığında (K00-07) buraya eklenir.
+
+/packages/auth/                 @aga-b
+/packages/db/migrations/        @aga-b
+/packages/db/src/rls/           @aga-b
+/packages/db/src/dal/           @aga-b
+/packages/application/src/access/ @aga-b
+/packages/domain/src/access/    @aga-b
+/packages/domain/src/publication/ @aga-b
+/packages/application/src/publication/ @aga-b
+/apps/web/src/app/media/        @aga-b
+/apps/media-worker/             @aga-b
+/infra/                         @aga-b
+/.github/workflows/             @aga-b
+/.github/CODEOWNERS             @aga-b
+/Dockerfile                     @aga-b
+/compose.yaml                   @aga-b

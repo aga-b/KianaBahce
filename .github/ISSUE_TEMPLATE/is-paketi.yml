@@ -1,0 +1,59 @@
+name: İş paketi
+description: Plandaki bir iş paketi için issue (docs/plan/ kartıyla birebir)
+labels: ["iş-paketi"]
+body:
+  - type: input
+    id: kimlik
+    attributes:
+      label: İş paketi kimliği
+      placeholder: "K05-06"
+    validations:
+      required: true
+  - type: input
+    id: boyut
+    attributes:
+      label: Boyut ve dalga
+      placeholder: "M · dalga 12"
+    validations:
+      required: true
+  - type: textarea
+    id: bagimlilik
+    attributes:
+      label: Başlamadan önce main'de olması gerekenler
+      description: İş paketi kimlikleri; hepsinin issue'su kapalı olmalı.
+    validations:
+      required: true
+  - type: textarea
+    id: yollar
+    attributes:
+      label: Dokunabileceğin yollar (yalnız bunlar)
+    validations:
+      required: true
+  - type: textarea
+    id: teslim
+    attributes:
+      label: Teslim edilecekler
+    validations:
+      required: true
+  - type: textarea
+    id: kabul
+    attributes:
+      label: Kabul
+    validations:
+      required: true
+  - type: textarea
+    id: kapsam-disi
+    attributes:
+      label: Kapsam dışı
+  - type: textarea
+    id: oku
+    attributes:
+      label: Oku
+      description: Şartname bölümleri ve T-xx senaryoları.
+  - type: dropdown
+    id: kapi
+    attributes:
+      label: Proje.md §21.3 insan inceleme kapısı
+      options: ["Hayır", "Evet"]
+    validations:
+      required: true
