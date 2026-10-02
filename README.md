@@ -33,6 +33,6 @@ pnpm test:e2e
 Varsayılan tüm sayfalar noindex; gerçek içerik ve backend kabulü yapılmadan yayınlanmamalıdır. Tarih planı kişisel bilgi toplamaz, saklanmaz ve talep göndermez.
 
 ## Container
-`docker compose up --build` web ve boş işçi süreçlerini başlatır. Bu ortamda Docker bulunmadığı için imaj build testi yapılmadı. İmajların Node 24 etiketi üretim öncesi digest ile sabitlenmelidir.
+`docker compose -f infra/docker/compose.yaml up --build` web (127.0.0.1:3500), worker ve media-worker'ı sahte ortam değerleriyle başlatır; üçü de non-root, salt-okunur dosya sistemiyle çalışır ve sağlık kontrolü yeşile döner. Taban imaj sürüm + digest ile sabittir; güncellemesi bilinçli bir PR'dır.
 
 Tarayıcı indirmesi kısıtlı ortamlarda `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH` ile mevcut Chromium yolu verilebilir. CI varsayılan Playwright tarayıcısını kurar.
