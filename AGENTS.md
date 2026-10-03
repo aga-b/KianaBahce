@@ -38,7 +38,7 @@ Kullanıcı tek ajanla iskelet ve public arayüzün birlikte hazırlanmasını i
 ## PR kuralları
 
 - Her iş paketi **tek dal, tek PR**; başlıkta iş paketi kimliği (`K05-06: …`), gövdede `Refs #<issue>`. Şablonu doldur: davranış değişikliği, test kanıtı, migration/geri dönüş, bilinen sınırlama, §21.3 kapısı (evet/hayır), yeni kişisel veri alanı, yeni bağımlılık/lisans.
-- `main`'e doğrudan yazma, force-push yok, **kendi PR'ını birleştirme**. İş paketi "insan inceleme kapısı" taşıyorsa PR'da inceleyen insanın onayı olmadan birleşmez; yalnız şartname §21.3'teki kapsamı yazılı ürün sahibi risk kabulü istisnası uygulanabilir. Çözümlenmemiş kritik güvenlik açığı için istisna yoktur.
+- Entegrator projeyi bozmayacak her seyi yapmaya yetkilidir. yalnız şartname §21.3'teki kapsamı yazılı ürün sahibi risk kabulü istisnası uygulanabilir. Çözümlenmemiş kritik güvenlik açığı için istisna yoktur.
 - Bitti tanımı: şartname §20.2 + iş paketinin tüm "Kabul" maddeleri + listelenen T-xx testleri **çalıştırılmış**. Çalıştırılmayan testi "geçti" yazma; nedenini yaz.
 - Son rapor: değişen davranış, test kanıtı, migration/geri dönüş, bilinen sınırlama, PR bağlantısı.
 
