@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { withClient } from "./helpers.ts";
+import { withClient } from "./helpers/pg.ts";
 
 describe("gerçek PostgreSQL (SQLite/mock yok)", () => {
   it("PostgreSQL 17+ sunucusuna bağlanır", async () => {

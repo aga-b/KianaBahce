@@ -1,2 +1,2 @@
-// Module boundary reserved for the corresponding implementation package.
-export {};
+export * from "./client/index.ts";
+export * from "./migrate/runner.ts";
