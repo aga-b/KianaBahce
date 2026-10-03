@@ -39,16 +39,21 @@ const rejects = (sql: string, params: unknown[], code: string) =>
   expect(c.query(sql, params)).rejects.toMatchObject({ code });
 
 describe("kimlik şeması (K02-03)", () => {
-  it("müşteri ve personel tabloları arasında hiçbir FK yoktur", async () => {
+  it("müşteri ve personel tabloları birbirine bağlanamaz: yalnız organization'a FK verirler", async () => {
     const r = await c.query(`
       SELECT conrelid::regclass::text AS from_t, confrelid::regclass::text AS to_t
       FROM pg_constraint
       WHERE contype = 'f'
-        AND ((conrelid = 'customer_user'::regclass AND confrelid <> 'organization'::regclass)
-          OR (confrelid = 'customer_user'::regclass)
-          OR (conrelid = 'staff_user'::regclass AND confrelid <> 'organization'::regclass)
-          OR (confrelid = 'staff_user'::regclass AND conrelid <> 'staff_membership'::regclass))`);
+        AND conrelid IN ('customer_user'::regclass, 'staff_user'::regclass)
+        AND confrelid <> 'organization'::regclass`);
     expect(r.rows).toEqual([]);
+    const u = await c.query(`
+      SELECT 1 FROM pg_constraint
+      WHERE contype IN ('u','p')
+        AND conrelid IN ('customer_user'::regclass, 'staff_user'::regclass)
+        AND EXISTS (SELECT 1 FROM pg_attribute a WHERE a.attrelid = conrelid AND a.attnum = ANY (conkey)
+                    AND a.attname ~ '(customer|staff)_user_id|email|phone')`);
+    expect(u.rowCount).toBe(0);
   });
 
   it("aynı e-posta ve telefon müşteri ile personelde ayrı kimlik olarak yaşar", async () => {
@@ -156,7 +161,10 @@ describe("kimlik şeması (K02-03)", () => {
       [orgB, m],
       "23503",
     );
-    const ev = "11111111-1111-1111-1111-111111111111";
+    const ev = await id(
+      "INSERT INTO event (organization_id, title) VALUES ($1,'E') RETURNING id",
+      [orgA],
+    );
     await c.query(
       "INSERT INTO staff_assignment (organization_id, membership_id, event_id) VALUES ($1,$2,$3)",
       [orgA, m, ev],
